@@ -20,7 +20,6 @@ body {
 }
 
 header {
-    /* Removidas as regras flexbox daqui, agora estão no .site-inner */
     padding: 1.5rem 0; /* Remove padding lateral, o site-inner cuida disso */
     position: relative;
     top: 0;
@@ -29,11 +28,11 @@ header {
     z-index: 10;
 }
 
-/* Novo Container para Centralizar e Aplicar o Flexbox */
+/* Container de Layout Principal (Usado no Header e Footer para centralização) */
 .site-inner {
     max-width: 1200px; /* Largura máxima para centralização */
     margin: 0 auto; /* Centraliza o bloco na página */
-    padding: 0 2rem; /* Adiciona padding lateral para telas grandes */
+    padding: 0 2rem; /* Adiciona padding lateral */
     
     display: flex; /* Ativa o Flexbox para o alinhamento horizontal */
     justify-content: space-between; /* Distribui o espaço entre os 3 blocos */
@@ -93,7 +92,6 @@ header h1 span {
 
 /* --- Barra de Busca Unificada (Estilo Amazon) --- */
 .search-bar-container {
-    /* REMOVIDO flex-grow: 1; pois o header-center já está crescendo */
     display: flex;
     border-radius: 4px;
     overflow: visible;
@@ -395,18 +393,64 @@ input:focus {
     font-weight: bold;
 }
 
+/* --- Rodapé (Correção e Estilização) --- */
 .footer {
-    text-align: center;
-    padding: 2rem;
+    padding: 2rem 0; /* Ajusta padding para o footer-inner cuidar do lateral */
     background-color: #000;
     border-top: 2px solid var(--primary-color);
     font-size: 0.9rem;
 }
 
+.footer-inner {
+    /* Herda o alinhamento e centralização do .site-inner */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tmdb-ack {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.tmdb-ack img {
+    width: 60px; 
+    height: auto;
+    filter: brightness(1) saturate(0.9);
+}
+
+.copyright {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.copyright a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+}
+
+.copyright a:hover {
+    color: var(--accent-color);
+}
+
+.footer-nav {
+    flex-shrink: 0;
+}
+
 .footer-links {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 1.5rem;
     padding: 0;
     margin: 0;
@@ -421,6 +465,7 @@ input:focus {
 .footer-links a:hover {
     color: var(--accent-color);
 }
+
 
 .loader {
     border: 6px solid #333;
@@ -451,33 +496,31 @@ input:focus {
 /* --- Media Queries para Responsividade (CORRIGIDAS) --- */
 
 @media (max-width: 768px) { 
-    /* 1. CONTAINER PRINCIPAL: Empilha os 3 blocos (Logo, Busca, Filtros) */
+    /* CABEÇALHO */
     .site-inner {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        padding: 0 1rem; /* Ajusta o padding lateral em mobile */
+        padding: 0 1rem;
     }
 
-    /* 2. OVERRIDE DE LARGURAS: Faz os blocos ocuparem a tela toda */
     .header-left,
     .header-center,
     .header-right {
         width: 100%;
         max-width: none;
-        flex-grow: 0; /* Garante que não haja crescimento inesperado */
-        justify-content: center; /* Centraliza o conteúdo (como a logo) */
+        flex-grow: 0;
+        justify-content: center;
     }
     
     .logo {
-        height: 50px; /* Ajuste fino para mobile */
+        height: 50px;
     }
 
     .search-bar-container {
         width: 100%;
     }
 
-    /* 3. DROPDOWNS/FILTROS: Distribui os botões de filtro lado a lado */
     .header-dropdowns {
         display: flex;
         justify-content: space-between;
@@ -485,36 +528,61 @@ input:focus {
         width: 100%;
     }
 
-    /* Faz os botões de filtro dividirem a largura igualmente (50%/50%) */
     .dropdown-btn {
         flex-grow: 1;
         text-align: center;
         padding: 0.6rem 0.5rem;
         font-size: 0.9rem;
-        min-width: unset; /* Permite encolher em telas muito pequenas */
+        min-width: unset;
     }
     
+    /* CARDS */
     .card-container {
         gap: 1rem;
     }
     
     .card {
-        /* Permite que 2 cards fiquem lado a lado em telas menores */
         flex-basis: calc(50% - 0.5rem);
         flex-grow: 1;
         width: auto;
         max-width: 240px; 
     }
     
+    /* RODAPÉ */
     .footer {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0;
+    }
+    
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-meta {
+        order: 2; /* Coloca a meta informação abaixo dos links em mobile */
+        align-items: center;
+    }
+    
+    .footer-nav {
+        order: 1;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .card {
-        /* Garante que o card ocupe a largura total em celulares muito pequenos */
         flex-basis: 100%;
         max-width: none;
+    }
+    
+    .tmdb-ack img {
+        width: 80px;
     }
 }
