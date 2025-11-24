@@ -8,10 +8,8 @@ const catalogo = {
         loader: document.querySelector(".loader"),
         sortDropdownBtn: document.getElementById('sort-dropdown-btn'),
         sortOptions: document.getElementById('sort-options'),
-        categoryDropdownBtn: document.getElementById('category-dropdown-btn'),
+        categoryDropdownBtn: document.getElementById('category-dropdown-btn'), // O seletor do pai estava causando o erro
         categoryOptions: document.getElementById('category-options'),
-        // NOVO: Seletor para o link da logo para corrigir o problema de clique
-        logoLink: document.getElementById('logo-link'), 
     },
     // Armazena os dados dos filmes
     dados: [],
@@ -24,6 +22,13 @@ const catalogo = {
 
     // Função principal que inicializa o catálogo
     init() {
+        // Valida elementos essenciais
+        const { cardsContainer, campoBusca, botaoBusca, botaoLimpar } = this.elements;
+        if (!cardsContainer || !campoBusca || !botaoBusca || !botaoLimpar) {
+            console.error('Elementos essenciais não encontrados no DOM. Verifique o HTML.');
+            return;
+        }
+
         this.vincularEventos();
         this.carregarDados();
     },
@@ -32,267 +37,332 @@ const catalogo = {
     vincularEventos() {
         this.elements.botaoBusca.addEventListener('click', () => this.iniciarBusca());
         this.elements.botaoLimpar.addEventListener('click', () => this.limparBusca());
-        // Adiciona evento para busca ao pressionar 'Enter'
-        this.elements.campoBusca.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
+        this.elements.campoBusca.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
                 this.iniciarBusca();
             }
         });
-        
-        // CORREÇÃO LOGO: Previne o comportamento padrão do link e reseta o catálogo
-        this.elements.logoLink.addEventListener('click', (e) => {
-            e.preventDefault(); // Impede o recarregamento da página
-            this.resetarCatalogo();
-        });
 
-        // Eventos para o Dropdown de Ordenação
         this.elements.sortDropdownBtn.addEventListener('click', () => {
-            this.elements.sortOptions.classList.toggle('hidden');
+            // A classe 'hidden' não é mais usada para controlar a visibilidade do dropdown animado
             this.elements.sortDropdownBtn.classList.toggle('open');
-            // Esconde o dropdown de categoria
-            this.elements.categoryOptions.classList.add('hidden');
-            this.elements.categoryDropdownBtn.classList.remove('open');
+            this.elements.sortDropdownBtn.setAttribute('aria-expanded', this.elements.sortDropdownBtn.classList.contains('open'));
         });
-        
-        this.elements.sortOptions.addEventListener('click', (e) => {
-            if (e.target.tagName === 'LI') {
-                const tipoOrdenacao = e.target.dataset.sort;
-                this.ordenarFilmes(tipoOrdenacao);
-                
-                // Atualiza o texto do botão
-                this.ordenacaoAtual.tipo = tipoOrdenacao;
-                this.ordenacaoAtual.texto = e.target.textContent;
-                this.elements.sortDropdownBtn.querySelector('span').textContent = this.ordenacaoAtual.texto;
 
-                this.elements.sortOptions.classList.add('hidden');
-                this.elements.sortDropdownBtn.classList.remove('open');
+        this.elements.sortOptions.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.tagName === 'LI') {
+                // Lógica para marcar item ativo
+                this.elements.sortOptions.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+                target.classList.add('active');
+
+                this.definirOrdenacao(target.dataset.sort, target.textContent);
             }
         });
-        
-        // Eventos para o Dropdown de Categoria
+
         this.elements.categoryDropdownBtn.addEventListener('click', () => {
-            this.elements.categoryOptions.classList.toggle('hidden');
             this.elements.categoryDropdownBtn.classList.toggle('open');
-            // Esconde o dropdown de ordenação
-            this.elements.sortOptions.classList.add('hidden');
-            this.elements.sortDropdownBtn.classList.remove('open');
+            this.elements.categoryDropdownBtn.setAttribute('aria-expanded', this.elements.categoryDropdownBtn.classList.contains('open'));
         });
-        
-        this.elements.categoryOptions.addEventListener('click', (e) => {
-            if (e.target.tagName === 'LI') {
-                const categoria = e.target.dataset.category;
-                this.filtrarPorCategoria(categoria);
+
+        this.elements.categoryOptions.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.tagName === 'LI') {
+                // Lógica para marcar item ativo
+                this.elements.categoryOptions.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+                target.classList.add('active');
+
+                this.filtrarPorCategoria(target.dataset.category || target.textContent);
+                const span = this.elements.categoryDropdownBtn.querySelector('span');
+                if (span) span.textContent = target.textContent;
                 
-                // Atualiza o texto do botão
-                this.elements.categoryDropdownBtn.querySelector('span').textContent = categoria;
-                
-                this.elements.categoryOptions.classList.add('hidden');
                 this.elements.categoryDropdownBtn.classList.remove('open');
+                this.elements.categoryDropdownBtn.setAttribute('aria-expanded', 'false');
             }
         });
 
-        // Esconder dropdowns ao clicar fora
-        document.addEventListener('click', (e) => {
-            if (!this.elements.sortDropdownBtn.contains(e.target) && !this.elements.sortOptions.contains(e.target)) {
-                this.elements.sortOptions.classList.add('hidden');
-                this.elements.sortDropdownBtn.classList.remove('open');
+        // Fecha o dropdown se clicar fora dele
+        window.addEventListener('click', (event) => {
+            const sortEl = document.querySelector('.sort-dropdown');
+            const catEl = document.querySelector('.category-dropdown');
+            const isClickInsideSort = sortEl ? sortEl.contains(event.target) : false;
+            const isClickInsideCategory = catEl ? catEl.contains(event.target) : false;
+
+            if (!isClickInsideSort) {
+                if (this.elements.sortDropdownBtn) this.elements.sortDropdownBtn.classList.remove('open');
+                if (this.elements.sortDropdownBtn) this.elements.sortDropdownBtn.setAttribute('aria-expanded', 'false');
             }
-            if (!this.elements.categoryDropdownBtn.contains(e.target) && !this.elements.categoryOptions.contains(e.target)) {
-                this.elements.categoryOptions.classList.add('hidden');
-                this.elements.categoryDropdownBtn.classList.remove('open');
+            if (!isClickInsideCategory) {
+                if (this.elements.categoryDropdownBtn) this.elements.categoryDropdownBtn.classList.remove('open');
+                if (this.elements.categoryDropdownBtn) this.elements.categoryDropdownBtn.setAttribute('aria-expanded', 'false');
             }
         });
-    },
-
-    // Funções de Gerenciamento de Dados
-    async carregarDados() {
-        this.elements.loader.classList.remove('hidden');
-        try {
-            // Buscando o arquivo data.json (assumindo que está no mesmo diretório)
-            const response = await fetch('./data.json');
-            if (!response.ok) {
-                throw new Error('Erro ao carregar dados dos filmes.');
-            }
-            this.dados = await response.json();
-            this.dadosAtuais = [...this.dados]; // Inicializa dadosAtuais com todos os filmes
-            this.criarBotoesCategoria();
-            this.atualizarVisualizacao();
-
-        } catch (error) {
-            console.error("Falha ao carregar dados:", error);
-            this.elements.cardsContainer.innerHTML = '<p class="empty-message">Não foi possível carregar o catálogo de filmes. Tente novamente mais tarde.</p>';
-        } finally {
-            this.elements.loader.classList.add('hidden');
-        }
-    },
-    
-    // NOVO: Função para resetar toda a visualização ao clicar na logo
-    resetarCatalogo() {
-        this.dadosAtuais = [...this.dados];
-        this.elements.campoBusca.value = '';
-        this.elements.botaoLimpar.classList.add('hidden');
-
-        // Resetar Filtro de Categoria
-        this.resetarFiltroCategoria(); 
-        
-        // Resetar Ordenação (se desejar)
-        this.ordenacaoAtual = { tipo: 'padrao', texto: 'Padrão' };
-        this.elements.sortDropdownBtn.querySelector('span').textContent = 'Padrão';
-        
-        this.atualizarVisualizacao();
     },
 
     iniciarBusca() {
-        const termo = this.elements.campoBusca.value.toLowerCase().trim();
-        this.dadosAtuais = this.dados.filter(filme => 
-            filme.titulo.toLowerCase().includes(termo) ||
-            filme.descricao.toLowerCase().includes(termo)
-        );
-        
-        // Após a busca, a ordenação e filtro de categoria devem ser aplicados
-        this.ordenarFilmes(this.ordenacaoAtual.tipo); // Reaplica a ordenação
-        this.resetarFiltroCategoria(); // Reseta a categoria para "Todos"
-        
-        // Mostra/Esconde o botão "Limpar Busca"
-        if (termo.length > 0) {
-            this.elements.botaoLimpar.classList.remove('hidden');
-        } else {
-            this.elements.botaoLimpar.classList.add('hidden');
+        // Verificação de segurança para garantir que os elementos do filtro existem
+        if (!this.elements.categoryDropdownBtn) {
+            console.warn("O botão de categoria ainda não foi inicializado.");
+            return;
         }
-        
+
+        this.elements.loader.classList.remove('hidden');
+        const termoBusca = (this.elements.campoBusca.value || '').toLowerCase();
+        // Determina categoria atual (com fallback para 'Todos')
+        let categoriaAtual = 'Todos';
+        const catSpan = this.elements.categoryDropdownBtn && this.elements.categoryDropdownBtn.querySelector('span');
+        if (catSpan && catSpan.textContent) categoriaAtual = catSpan.textContent.trim();
+
+        // A busca é feita sobre o conjunto completo de dados, aplicando filtro de categoria e termo
+        this.dadosAtuais = this.dados.filter(filme => {
+            const correspondeCategoria = (categoriaAtual === 'Todos' || !categoriaAtual || (filme.categoria && filme.categoria.trim() === categoriaAtual));
+            const correspondeBusca = !termoBusca || (filme.titulo && filme.titulo.toLowerCase().includes(termoBusca));
+            return correspondeCategoria && correspondeBusca;
+        });
+
+        this.elements.botaoLimpar.classList.remove('hidden'); // Mostra o botão de limpar
         this.atualizarVisualizacao();
     },
 
     limparBusca() {
         this.elements.campoBusca.value = '';
-        this.elements.botaoLimpar.classList.add('hidden');
-        this.dadosAtuais = [...this.dados]; // Volta a exibir todos os filmes
-        this.resetarFiltroCategoria(); // Garante que o filtro de categoria volte para "Todos"
-        this.ordenarFilmes(this.ordenacaoAtual.tipo); // Mantém a ordenação atual
+        this.dadosAtuais = this.dados;
+        this.elements.botaoLimpar.classList.add('hidden'); // Esconde o botão de limpar
+        this.ordenacaoAtual = { tipo: 'padrao', texto: 'Padrão' }; // Reseta a ordenação
+        this.elements.sortDropdownBtn.querySelector('span').textContent = this.ordenacaoAtual.texto;
+        // Marca a opção 'Padrão' como ativa
+        this.elements.sortOptions.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+        this.elements.sortOptions.querySelector('li[data-sort="padrao"]').classList.add('active');
+        this.resetarFiltroCategoria();
         this.atualizarVisualizacao();
     },
 
-    // Funções de Visualização
+    definirOrdenacao(tipo, texto) {
+        this.ordenacaoAtual = { tipo, texto };
+        this.elements.sortDropdownBtn.querySelector('span').textContent = texto;
+        this.elements.sortDropdownBtn.classList.remove('open');
+        this.atualizarVisualizacao();
+    },
+
+    // 4. Refatoração: Centraliza a lógica de ordenação e renderização.
     atualizarVisualizacao() {
-        this.elements.cardsContainer.innerHTML = ''; // Limpa o container
-        
-        if (this.dadosAtuais.length === 0) {
-            this.elements.cardsContainer.innerHTML = '<p class="empty-message">Nenhum filme encontrado com os filtros ou termo de busca selecionados.</p>';
-            return;
-        }
+        let dadosParaRenderizar = [...this.dadosAtuais];
 
-        const cardsHtml = this.dadosAtuais.map(filme => this.criarCard(filme)).join('');
-        this.elements.cardsContainer.innerHTML = cardsHtml;
-    },
-
-    criarCard(filme) {
-        // Verifica se a URL do pôster é válida ou usa um placeholder
-        const posterUrl = filme.poster && filme.poster.startsWith('http') ? filme.poster : null;
-        const posterHtml = posterUrl 
-            ? `<img src="${posterUrl}" alt="Pôster do filme ${filme.titulo}">`
-            : `<div class="poster-placeholder"><span>${filme.titulo}</span><p>Pôster indisponível</p></div>`;
-
-        // Gera as estrelas de avaliação
-        const ratingStarsHtml = this.gerarEstrelas(filme.avaliacao);
-
-        return `
-            <a href="${filme.link}" target="_blank" class="card">
-                ${posterHtml}
-                <div class="card-content">
-                    <h2>${filme.titulo} (${filme.ano})</h2>
-                    <p>${filme.categoria}</p>
-                    <div class="rating-stars">${ratingStarsHtml}</div>
-                </div>
-                <div class="card-overlay">
-                    <div class="overlay-meta">
-                        <h3>${filme.titulo} (${filme.ano})</h3>
-                        <div class="rating-stars">${ratingStarsHtml}</div>
-                        <p class="overlay-description">${filme.descricao}</p>
-                        <p><strong>Diretor:</strong> ${filme.diretor}</p>
-                        <p><strong>Categoria:</strong> ${filme.categoria}</p>
-                    </div>
-                    <span class="overlay-hint">Ver Detalhes (IMDb)</span>
-                </div>
-            </a>
-        `;
-    },
-
-    // Funções de Ordenação e Filtro
-    ordenarFilmes(tipo) {
-        switch (tipo) {
+        switch (this.ordenacaoAtual.tipo) {
             case 'avaliacao-desc':
-                this.dadosAtuais.sort((a, b) => b.avaliacao - a.avaliacao);
+                dadosParaRenderizar.sort((a, b) => b.avaliacao - a.avaliacao);
                 break;
             case 'avaliacao-asc':
-                this.dadosAtuais.sort((a, b) => a.avaliacao - b.avaliacao);
+                dadosParaRenderizar.sort((a, b) => a.avaliacao - b.avaliacao);
                 break;
             case 'ano-desc':
-                this.dadosAtuais.sort((a, b) => b.ano - a.ano);
+                dadosParaRenderizar.sort((a, b) => b.ano - a.ano);
                 break;
             case 'ano-asc':
-                this.dadosAtuais.sort((a, b) => a.ano - b.ano);
+                dadosParaRenderizar.sort((a, b) => a.ano - b.ano);
                 break;
             case 'alfa':
-                this.dadosAtuais.sort((a, b) => a.titulo.localeCompare(b.titulo));
-                break;
-            case 'padrao':
-            default:
-                // Se for "padrão", usa a ordem original dos dados
-                this.dadosAtuais = this.dadosAtuais.length === this.dados.length
-                    ? [...this.dados] // Se não houver filtro, volta à ordem original
-                    : this.dadosAtuais; // Se houver filtro/busca, mantém a ordem
+                dadosParaRenderizar.sort((a, b) => a.titulo.localeCompare(b.titulo));
                 break;
         }
-        // Se a ordenação for chamada diretamente, atualiza a view
-        if (tipo !== 'padrao') {
-             this.atualizarVisualizacao();
+        this.renderizarCards(dadosParaRenderizar);
+    },
+
+    // Funções auxiliares para o loader
+    mostrarLoader() {
+        this.elements.loader.classList.remove('hidden');
+    },
+
+    esconderLoader() {
+        this.elements.loader.classList.add('hidden');
+    },
+
+    async carregarDados() {
+        this.mostrarLoader();
+        try {
+            const response = await fetch('data.json'); 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const dados = await response.json();
+            this.dados = dados;
+            this.dadosAtuais = dados;
+            this.criarBotoesCategoria();
+            this.atualizarVisualizacao();
+        } catch (error) {
+            console.error("Erro ao carregar os dados do JSON:", error);
+            // Fallback: tenta usar o JSON embutido em `index.html` (útil quando aberto via file:// sem servidor)
+            const inline = document.getElementById('data-json');
+            if (inline) {
+                try {
+                    const fallbackDados = JSON.parse(inline.textContent);
+                    this.dados = fallbackDados;
+                    this.dadosAtuais = fallbackDados;
+                    this.criarBotoesCategoria();
+                    this.atualizarVisualizacao();
+                } catch (e) {
+                    console.error('Fallback JSON inválido:', e);
+                    this.elements.cardsContainer.innerHTML = '<p class="empty-message">Não foi possível carregar os filmes. Tente novamente mais tarde.</p>';
+                }
+            } else {
+                this.elements.cardsContainer.innerHTML = '<p class="empty-message">Não foi possível carregar os filmes. Tente novamente mais tarde.</p>';
+            }
+        } finally {
+            this.esconderLoader();
+        }
+    },
+
+    renderizarCards(cards) {
+        this.elements.cardsContainer.innerHTML = "";
+        if (cards.length === 0) {
+            this.elements.cardsContainer.innerHTML = `<p class="empty-message">Nenhum filme encontrado.</p>`;
+            return;
+        }
+        for (let card of cards) {
+            // Segurança: normaliza campos
+            card = Object.assign({ titulo: '', ano: 0, diretor: '', descricao: '', avaliacao: 0, poster: '', link: '#' }, card || {});
+            const cardElement = document.createElement("a"); // Corrigido de 'div' para 'a'
+            cardElement.href = card.link;
+            cardElement.target = "_blank";
+            cardElement.classList.add("card");
+
+            const cardImage = document.createElement("img");
+            cardImage.src = card.poster;
+            cardImage.alt = `Pôster do filme ${card.titulo}`;
+            cardImage.loading = 'lazy'; // Adiciona o carregamento preguiçoso
+
+            // Condicional para o caso de o pôster não ser encontrado (fallback)
+            cardImage.onerror = function() {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'poster-placeholder';
+                const phTitle = document.createElement('span');
+                phTitle.textContent = card.titulo || 'Sem título';
+                const phSmall = document.createElement('small');
+                phSmall.textContent = 'Pôster indisponível';
+                placeholder.appendChild(phTitle);
+                placeholder.appendChild(phSmall);
+                if (this.parentNode) {
+                    this.parentNode.replaceChild(placeholder, this);
+                }
+            };
+
+            const cardContent = document.createElement("div");
+            cardContent.classList.add("card-content");
+
+            const cardTitle = document.createElement("h2");
+            cardTitle.textContent = card.titulo;
+
+            const cardInfo = document.createElement("p");
+            cardInfo.textContent = `${card.ano} • ${card.diretor}`;
+
+            const ratingContainer = document.createElement("div");
+            ratingContainer.classList.add("rating-stars");
+            ratingContainer.innerHTML = this.gerarEstrelas(Number(card.avaliacao) || 0);
+
+            const cardOverlay = document.createElement('div');
+            cardOverlay.classList.add('card-overlay');
+
+            const overlayTitle = document.createElement('h3');
+            overlayTitle.textContent = card.titulo || '';
+
+            const overlayDesc = document.createElement('p');
+            overlayDesc.className = 'overlay-description';
+            overlayDesc.textContent = card.descricao || '';
+
+            const overlayRating = document.createElement('div');
+            overlayRating.className = 'rating-stars';
+            overlayRating.innerHTML = this.gerarEstrelas(card.avaliacao);
+
+            const overlayMeta = document.createElement('div');
+            overlayMeta.className = 'overlay-meta';
+
+            const metaAno = document.createElement('p');
+            const strongAno = document.createElement('strong');
+            strongAno.textContent = 'Ano:';
+            metaAno.appendChild(strongAno);
+            metaAno.appendChild(document.createTextNode(' ' + (card.ano || '')));
+
+            const metaDir = document.createElement('p');
+            const strongDir = document.createElement('strong');
+            strongDir.textContent = 'Diretor:';
+            metaDir.appendChild(strongDir);
+            metaDir.appendChild(document.createTextNode(' ' + (card.diretor || '')));
+
+            overlayMeta.appendChild(metaAno);
+            overlayMeta.appendChild(metaDir);
+
+            const overlayHint = document.createElement('span');
+            overlayHint.className = 'overlay-hint';
+            overlayHint.textContent = '+ Clique para saber mais';
+
+            cardOverlay.appendChild(overlayTitle);
+            cardOverlay.appendChild(overlayDesc);
+            cardOverlay.appendChild(overlayRating);
+            cardOverlay.appendChild(overlayMeta);
+            cardOverlay.appendChild(overlayHint);
+
+            cardContent.appendChild(cardTitle);
+            cardContent.appendChild(cardInfo);
+            cardContent.appendChild(ratingContainer);
+            cardElement.appendChild(cardImage);
+            cardElement.appendChild(cardContent);
+            cardElement.appendChild(cardOverlay);
+            this.elements.cardsContainer.appendChild(cardElement);
         }
     },
 
     gerarEstrelas(avaliacao) {
         const notaMaxima = 10;
         const numEstrelas = 5;
-        const notaEm5 = (avaliacao / notaMaxima) * numEstrelas;
+        const notaNum = Number(avaliacao) || 0;
+        const notaEm5 = (notaNum / notaMaxima) * numEstrelas;
         let estrelasHtml = '';
         for (let i = 1; i <= numEstrelas; i++) {
             estrelasHtml += `<span class="star-icon">${i <= notaEm5 ? '★' : '☆'}</span>`;
         }
-        estrelasHtml += `<span class="rating-number">(${avaliacao.toFixed(1)}/10)</span>`;
+        estrelasHtml += `<span class="rating-number">(${notaNum.toFixed(1)}/10)</span>`;
         return estrelasHtml;
     },
 
     criarBotoesCategoria() {
         this.elements.categoryOptions.innerHTML = ''; // Limpa opções existentes
-        const categorias = ['Todos', ...new Set(this.dados.map(filme => filme.categoria).sort())];
+        const rawCats = (this.dados || []).map(f => (f.categoria || '').toString().trim()).filter(Boolean);
+        const unique = Array.from(new Set(rawCats)).sort((a, b) => a.localeCompare(b));
+        const categorias = ['Todos', ...unique];
 
         categorias.forEach(categoria => {
             const li = document.createElement('li');
             li.textContent = categoria;
             li.dataset.category = categoria;
+            if (categoria === 'Todos') li.classList.add('active'); // Marca 'Todos' como ativo por padrão
             this.elements.categoryOptions.appendChild(li);
         });
+        // garante que o botão mostra 'Todos' por padrão
+        const span = this.elements.categoryDropdownBtn && this.elements.categoryDropdownBtn.querySelector('span');
+        if (span && !span.textContent.trim()) span.textContent = 'Todos';
     },
 
     filtrarPorCategoria(categoria) {
         this.elements.campoBusca.value = ''; // Limpa a busca ao trocar de categoria
         this.elements.botaoLimpar.classList.add('hidden');
 
-        this.dadosAtuais = (categoria === 'Todos')
-            ? this.dados
-            : this.dados.filter(filme => filme.categoria === categoria);
-        
-        // Reaplica a ordenação atual após o filtro
-        this.ordenarFilmes(this.ordenacaoAtual.tipo);
+        const cat = (categoria || 'Todos').toString().trim();
+        this.dadosAtuais = (cat === 'Todos') ? this.dados : this.dados.filter(filme => (filme.categoria || '').toString().trim() === cat);
+        // Atualiza label do botão
+        const span = this.elements.categoryDropdownBtn && this.elements.categoryDropdownBtn.querySelector('span');
+        if (span) span.textContent = cat;
 
         this.atualizarVisualizacao();
     },
 
     resetarFiltroCategoria() {
         this.elements.categoryDropdownBtn.querySelector('span').textContent = 'Todos';
+        // Marca a opção 'Todos' como ativa
+        this.elements.categoryOptions.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+        const todosLi = this.elements.categoryOptions.querySelector('li[data-category="Todos"]');
+        if (todosLi) todosLi.classList.add('active');
     }
 };
 
-// Inicia a aplicação assim que o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', () => {
-    catalogo.init();
-});
+// Inicia a aplicação assim que o DOM estiver pronto.
+document.addEventListener('DOMContentLoaded', () => catalogo.init());
