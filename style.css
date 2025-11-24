@@ -3,12 +3,16 @@
 }
 
 :root {
-    --primary-color: #8B0000; /* Deep Red (Cinema Velvet) */
-    --logo-accent: #f05a28;   /* Logo Orange/Red */
-    --accent-color: #d4af37;  /* Aged Gold */
-    --bg-color: #141414;      /* Matte Black */
-    --text-primary: #f5f5dc;  /* Beige/Cream Text */
-    --text-secondary: #a0a0a0;/* Lighter Gray */
+    /* Apple TV-inspired approximate palette */
+    --bg-color: #0a0a0b;          /* very dark background */
+    --primary-color: #111215;     /* slightly lighter than bg for borders */
+    --logo-accent: #5ac8ff;       /* cyan/turquoise accent like Apple TV highlights */
+    --accent-color: #ffffff;      /* bright accent (used for CTAs/text on colored backgrounds) */
+    --text-primary: #ffffff;      /* main text */
+    --text-secondary: #c8d0d5;    /* Aumentado o brilho para melhor contraste */
+    --muted: rgba(255,255,255,0.06); /* subtle borders and dividers */
+    --glow: rgba(90,200,255,0.14); /* accent glow */
+    --panel-bg: rgba(255,255,255,0.02); /* translucent panels */
 }
 
 body {
@@ -20,41 +24,75 @@ body {
 }
 
 header {
-    padding: 1.5rem 0; /* Remove padding lateral, o site-inner cuida disso */
+    padding: 1.5rem 2rem;
+    display: flex; /* MantÃ©m o header como um container flex */
     position: relative;
     top: 0;
-    background: linear-gradient(to bottom, rgba(20, 20, 20, 1) 80%, rgba(20, 20, 20, 0));
+    /* Usando var(--bg-color) e garantindo a transparÃªncia no final */
+    background: linear-gradient(to bottom, var(--bg-color) 80%, transparent);
     box-shadow: none;
     z-index: 10;
-}
-
-/* Container de Layout Principal (Usado no Header e Footer para centralização) */
-.site-inner {
-    max-width: 1200px; /* Largura máxima para centralização */
-    margin: 0 auto; /* Centraliza o bloco na página */
-    padding: 0 2rem; /* Adiciona padding lateral */
-    
-    display: flex; /* Ativa o Flexbox para o alinhamento horizontal */
-    justify-content: space-between; /* Distribui o espaço entre os 3 blocos */
-    align-items: center; /* Alinha verticalmente no centro */
-    
-    width: 100%;
-    gap: 1.5rem;
-}
-
-/* Header columns (Left, Center, Right) */
-.header-left {
-    flex-shrink: 0; /* Impede que o logo encolha */
-}
-.header-center {
-    flex-grow: 1; /* Permite que a barra de busca ocupe o espaço restante */
-    max-width: 600px; /* Limita o tamanho máximo da busca para estética */
-}
-.header-right {
-    flex-shrink: 0; /* Impede que os filtros encolham */
-    display: flex;
     align-items: center;
 }
+
+/* Inner container to keep layout centered and symmetric */
+.site-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* CRUCIAL: Distribui espaÃ§o entre os 3 blocos */
+    align-items: center;
+    gap: 1.5rem; /* Aumenta o espaÃ§amento entre os blocos principais */
+    width: 100%;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
+}
+
+.site-inner .search-bar-container {
+    max-width: 640px;
+}
+
+/* Header columns */
+.header-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Impede que o logo encolha */
+    min-width: 180px; /* Garante espaÃ§o mÃ­nimo para o logo */
+}
+.header-center {
+    flex: 1 1 auto; /* PERMITE CRESCER E OCUPAR O ESPAÃ‡O CENTRAL */
+    display: flex;
+    justify-content: center;
+    min-width: 250px; /* Evita que a barra de busca seja espremida demais */
+    max-width: 500px; /* Limita a largura mÃ¡xima da busca */
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    flex-shrink: 0; /* Impede que as aÃ§Ãµes encolham */
+}
+
+/* Categories navigation (below header) */
+.categories-nav {
+    background-color: transparent;
+    border-top: 1px solid rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+    padding: 0.4rem 0;
+}
+.categories-list {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    padding: 0;
+    margin: 0;
+}
+.categories-list a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+}
+.categories-list a:hover { color: var(--logo-accent); }
 
 /* --- Logo --- */
 .logo-container {
@@ -66,9 +104,61 @@ header {
 }
 
 .logo {
-    height: 60px;
-    width: auto;
+    height: 40px; /* Define uma altura fixa para o logo */
+    width: auto;  /* Garante que a largura seja ajustada proporcionalmente */
 }
+
+
+
+.footer {
+    padding: 2rem 1rem;
+    background-color: var(--bg-color);
+    border-top: 2px solid var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* Inner footer to align TMDb ack left and links right */
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens */
+    justify-content: space-between;
+    gap: 2rem; /* Aumenta o espaÃ§o entre os blocos */
+    width: 100%;
+}
+
+.footer-nav .footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-meta .copyright {
+    margin: 0;
+    white-space: nowrap; /* Impede que o texto quebre a linha */
+}
+
+.footer-meta .copyright a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+}
+
+.footer-meta .copyright a:hover { color: var(--accent-color); }
+
 
 header h1 {
     font-size: 2rem;
@@ -92,25 +182,26 @@ header h1 span {
 
 /* --- Barra de Busca Unificada (Estilo Amazon) --- */
 .search-bar-container {
+    flex-grow: 1; /* Faz a barra de busca crescer para preencher o espaÃ§o */
     display: flex;
     border-radius: 4px;
     overflow: visible;
-    border: 1px solid #333;
+    border: 1px solid var(--muted);
     background-color: #1f1f1f;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-bar-container:focus-within {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    border-color: var(--logo-accent);
+    box-shadow: 0 0 14px var(--glow);
 }
 
 .category-options {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--muted);
     border-radius: 4px;
     list-style: none;
     padding: 0.5rem 0;
@@ -126,7 +217,7 @@ header h1 span {
     background: transparent;
     font-family: inherit;
     font-size: 1rem;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease; /* O input cresce dentro do search-bar-container */
     flex-grow: 1;
     color: var(--text-primary);
 }
@@ -137,72 +228,77 @@ div input::placeholder {
 
 input:focus {
     outline: none;
+    border-color: var(--logo-accent);
+    box-shadow: 0 0 10px var(--glow);
 }
 
-/* --- Botões de Ação --- */
+/* --- BotÃµes de AÃ§Ã£o --- */
 .search-btn, .clear-btn {
-    padding: 0.6rem 1.5rem;
-    border: none;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--muted);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
     font-family: inherit;
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 0.98rem;
     white-space: nowrap;
-    transition: all 0.2s ease;
-    background-color: var(--accent-color);
+    background-color: var(--logo-accent);
     color: var(--bg-color);
+    border-radius: 6px;
+    box-shadow: 0 2px 0 rgba(1,180,228,0.06);
 }
 
-.sort-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
+.search-btn:hover, .clear-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px var(--glow);
 }
 
 .category-btn {
     padding: 0.4rem 0.8rem;
     border-radius: 1rem;
-    border: 1px solid var(--accent-color);
-    background-color: transparent;
+    border: 1px solid rgba(234,248,252,0.06);
+    background-color: transparent; 
     color: var(--text-secondary);
     cursor: pointer;
     font-family: inherit;
-    transition: all 0.2s ease;
-    opacity: 0.8;
-    width: 100%; /* Faz os botões ocuparem a largura da sidebar */
+    transition: background-color 0.18s, color 0.18s;
+    opacity: 0.9;
+    width: 100%; /* Faz os botÃµes ocuparem a largura da sidebar */
     text-align: left;
 }
 
-.category-btn:hover, .category-btn.active {
+.category-btn:hover, .category-btn.active { 
     background-color: var(--accent-color);
     color: var(--bg-color);
     opacity: 1;
+    box-shadow: 0 6px 16px rgba(144,206,161,0.04);
 }
 
 .category-dropdown,
 .sort-dropdown {
-    position: relative; /* Essencial para o posicionamento do menu de opções */
+    position: relative; /* Essencial para o posicionamento do menu de opÃ§Ãµes */
 }
 
-/* Classe genérica para botões de dropdown */
+/* Classe genÃ©rica para botÃµes de dropdown */
 .dropdown-btn {
     padding: 0.6rem 1.2rem;
-    border: 1px solid #444;
+    border: 1px solid rgba(234,248,252,0.06);
     border-radius: 4px;
-    background-color: #2a2a2a;
+    background-color: transparent;
     color: var(--text-secondary);
     cursor: pointer;
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.18s, border-color 0.18s, box-shadow 0.18s;
 }
 
 .dropdown-btn:hover {
-    background-color: #333;
-    border-color: #555;
+    background-color: rgba(90,200,255,0.04);
+    border-color: rgba(90,200,255,0.12);
+    box-shadow: 0 6px 18px rgba(90,200,255,0.04);
 }
 
 .dropdown-btn .arrow {
@@ -214,20 +310,50 @@ input:focus {
     transform: rotate(180deg);
 }
 
-/* Classe genérica para listas de opções de dropdown */
+/* Classe genÃ©rica para listas de opÃ§Ãµes de dropdown */
 .dropdown-options {
     position: absolute;
     top: 100%;
-    right: 0; /* Alinha o menu com o lado direito do botão */
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 4px;
+    right: 0; /* Alinha o menu com o lado direito do botÃ£o */
+    background-color: rgba(30, 30, 32, 0.8); /* Fundo mais sÃ³lido com transparÃªncia */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
     list-style: none;
     padding: 0.5rem 0;
-    margin: 0.25rem 0 0 0;
+    margin: 0.5rem 0 0 0; /* Aumenta a distÃ¢ncia do botÃ£o */
     z-index: 20;
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    opacity: 0; /* ComeÃ§a invisÃ­vel para animaÃ§Ã£o */
+    transform: translateY(-10px); /* ComeÃ§a um pouco acima para animaÃ§Ã£o */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; /* Impede interaÃ§Ã£o quando escondido */
+}
+
+/* Mostra o dropdown quando o botÃ£o estÃ¡ aberto */
+.dropdown-btn.open + .dropdown-options {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-options li {
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-options li:hover {
+    background-color: rgba(90, 200, 255, 0.1); /* Destaque no hover */
+}
+
+.dropdown-options li.active::after {
+    content: 'âœ“'; /* Ãcone de check para a opÃ§Ã£o ativa */
+    color: var(--logo-accent);
 }
 
 /* --- Container dos Cards --- */
@@ -236,25 +362,27 @@ input:focus {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    padding: 2rem 1rem; /* Espaçamento interno para o container não colar nas bordas */
+    padding: 2rem 1rem; /* EspaÃ§amento interno para o container nÃ£o colar nas bordas */
     width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .card {
     background-color: var(--bg-color);
     border-radius: 8px;
     flex-basis: 240px; /* Largura base do card */
-    flex-grow: 1;      /* Permite que o card cresça para preencher o espaço */
+    flex-grow: 1;      /* Permite que o card cresÃ§a para preencher o espaÃ§o */
     max-width: 280px;  /* Evita que o card fique grande demais em telas largas */
-    border: 1px solid #222;
-    background: linear-gradient(to top, #1a1a1a, var(--bg-color) 40%);
+    border: 1px solid rgba(234,248,252,0.04);
+    background: linear-gradient(to top, var(--bg-color), rgba(255,255,255,0.01) 40%);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: var(--text-secondary);
     display: flex;
     flex-direction: column;
-    position: relative; /* Necessário para posicionar o overlay */
+    position: relative; /* NecessÃ¡rio para posicionar o overlay */
 }
 
 .card:hover {
@@ -275,11 +403,11 @@ input:focus {
     display: block;
 }
 
-/* Estilo para o placeholder de pôster não encontrado */
+/* Estilo para o placeholder de pÃ´ster nÃ£o encontrado */
 .poster-placeholder {
     width: 100%;
-    height: 340px; /* Altura aproximada de um pôster */
-    background-color: #2a2a2a;
+    height: 340px; /* Altura aproximada de um pÃ´ster */
+    background-color: rgba(13,48,70,0.14);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -341,8 +469,8 @@ input:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.98) 20%, transparent 80%);
-    color: #fff;
+    background: linear-gradient(to top, rgba(10,10,11,0.95) 20%, transparent 80%);
+    color: var(--text-primary);
     padding: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -358,7 +486,7 @@ input:focus {
     font-size: 1.1rem;
     font-family: 'Cinzel', serif;
     padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+    border-bottom: 1px solid rgba(90,200,255,0.10);
 }
 
 .card-overlay .rating-stars {
@@ -373,12 +501,12 @@ input:focus {
 
 .card-overlay p {
     font-size: 0.8rem;
-    color: #ccc;
+    color: var(--text-secondary);
     margin: 2px 0;
 }
 
 .overlay-meta {
-    flex-grow: 1; /* Empurra o botão para baixo */
+    flex-grow: 1; /* Empurra o botÃ£o para baixo */
 }
 
 .overlay-hint {
@@ -393,82 +521,59 @@ input:focus {
     font-weight: bold;
 }
 
-/* --- Rodapé (Correção e Estilização) --- */
 .footer {
-    padding: 2rem 0; /* Ajusta padding para o footer-inner cuidar do lateral */
-    background-color: #000;
-    border-top: 2px solid var(--primary-color);
-    font-size: 0.9rem;
-}
-
-.footer-inner {
-    /* Herda o alinhamento e centralização do .site-inner */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; 
-}
-
-.footer-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.tmdb-ack {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 0;
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(180deg, rgba(13,37,63,0.95), rgba(11,18,32,1));
+    border-top: 2px solid rgba(255,255,255,0.04);
     color: var(--text-secondary);
+    font-size: 0.95rem;
 }
 
-.tmdb-ack img {
-    width: 60px; 
+.footer .tmdb-ack {
+    display: flex;
+    align-items: center; /* Alinha o texto e a imagem */
+    gap: 0.75rem;
+}
+
+.footer .tmdb-ack img {
+    width: 80px; /* Ajusta o tamanho do logo */
     height: auto;
     filter: brightness(1) saturate(0.9);
-}
-
-.copyright {
-    margin: 0;
-    color: var(--text-secondary);
-}
-
-.copyright a {
-    color: var(--text-secondary);
-    text-decoration: underline;
-}
-
-.copyright a:hover {
-    color: var(--accent-color);
-}
-
-.footer-nav {
-    flex-shrink: 0;
 }
 
 .footer-links {
     list-style: none;
     display: flex;
-    justify-content: flex-end;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: 1.25rem;
     padding: 0;
-    margin: 0;
+    margin: 0.5rem 0 0 0;
 }
 
 .footer-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.18s ease;
 }
 
 .footer-links a:hover {
-    color: var(--accent-color);
+    color: var(--logo-accent); /* SUGESTÃƒO: Usar uma variÃ¡vel existente como --logo-accent ou --accent-color */
 }
 
+.footer p { margin: 0; color: var(--text-secondary); font-size: 0.9rem }
+
+/* Responsivo: em telas pequenas, tornamos o ack estÃ¡tico e centralizado */
+@media (max-width: 520px) {
+    .footer .tmdb-ack {
+        position: static;
+        justify-content: center;
+        margin-bottom: 0.6rem;
+    }
+}
 
 .loader {
-    border: 6px solid #333;
+    border: 6px solid rgba(13,37,63,0.18);
     border-top: 6px solid var(--primary-color);
     border-radius: 50%;
     width: 50px;
@@ -478,7 +583,8 @@ input:focus {
 }
 
 .hidden {
-    display: none;
+    /* Usamos opacidade e pointer-events para controlar os dropdowns animados */
+    display: none !important;
 }
 
 @keyframes spin {
@@ -493,96 +599,26 @@ input:focus {
     width: 100%;
 }
 
-/* --- Media Queries para Responsividade (CORRIGIDAS) --- */
+/* --- Media Queries para Responsividade --- */
 
 @media (max-width: 768px) { 
-    /* CABEÇALHO */
+    header {
+        padding: 1.5rem 1rem; /* Reduz o padding em mobile */
+    }
+
     .site-inner {
-        flex-direction: column;
+        flex-direction: column; /* Empilha os blocos do cabeÃ§alho */
         align-items: center;
-        gap: 1rem;
-        padding: 0 1rem;
-    }
-
-    .header-left,
-    .header-center,
-    .header-right {
-        width: 100%;
-        max-width: none;
-        flex-grow: 0;
-        justify-content: center;
-    }
-    
-    .logo {
-        height: 50px;
-    }
-
-    .search-bar-container {
-        width: 100%;
     }
 
     .header-dropdowns {
-        display: flex;
-        justify-content: space-between;
-        gap: 0.5rem;
+        flex-direction: row; /* MantÃ©m os botÃµes de filtro lado a lado */
+        justify-content: center;
         width: 100%;
     }
 
-    .dropdown-btn {
-        flex-grow: 1;
-        text-align: center;
-        padding: 0.6rem 0.5rem;
-        font-size: 0.9rem;
-        min-width: unset;
-    }
-    
-    /* CARDS */
-    .card-container {
-        gap: 1rem;
-    }
-    
-    .card {
-        flex-basis: calc(50% - 0.5rem);
-        flex-grow: 1;
-        width: auto;
-        max-width: 240px; 
-    }
-    
-    /* RODAPÉ */
-    .footer {
-        padding: 1.5rem 0;
-    }
-    
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-    }
-    
-    .footer-meta {
-        order: 2; /* Coloca a meta informação abaixo dos links em mobile */
-        align-items: center;
-    }
-    
-    .footer-nav {
-        order: 1;
-    }
-    
-    .footer-links {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        flex-basis: 100%;
-        max-width: none;
-    }
-    
-    .tmdb-ack img {
-        width: 80px;
+    .search-bar-container {
+        width: 100%; /* Ocupa toda a largura em mobile */
+        max-width: none; /* Ignora o limite de 500px em mobile */
     }
 }
