@@ -11,47 +11,42 @@
 <body>
 
     <header>
-        <div class="site-inner">
-    <a href="#" class="logo-container" onclick="event.preventDefault()">
-        <img src="Gemini_Generated_Image_kmgilrkmgilrkmgi.png" alt="Logo Cine Dev" class="logo">
-        <h1>Cine<span>Dev</span></h1>
-    </a>
-</div>
+    <div class="site-inner">
+        
+        <a href="#" class="logo-container" onclick="event.preventDefault()">
+            <img src="Gemini_Generated_Image_kmgilrkmgilrkmgi.png" alt="Logo Cine Dev" class="logo">
+            <h1>Cine<span>Dev</span></h1>
+        </a>
 
-            <!-- Barra de Busca Unificada (central) -->
-            <div class="site-inner">
-                <div class="search-bar-container">
-                    <input type="text" id="campo-busca" placeholder="Busque por um filme...">
-                    <button id="botao-busca" class="search-btn">Buscar</button>
-                    <button id="botao-limpar" class="clear-btn hidden">Limpar Busca</button>
-                </div>
-            </div>
-
-            <!-- Controles à direita (entrar/pedidos/perfil) e filtros -->
-            <div class="header-right">
-                <div class="header-dropdowns">
-                    <div class="category-dropdown">
-                        <button id="category-dropdown-btn" class="dropdown-btn">Categoria: <span>Todos</span> <span class="arrow">▼</span></button>
-                        <ul id="category-options" class="dropdown-options">
-                            <!-- Categorias serão inseridas aqui pelo JS -->
-                        </ul>
-                    </div>
-                    <div class="sort-dropdown">
-                        <button id="sort-dropdown-btn" class="dropdown-btn">Ordenar por: <span>Padrão</span> <span class="arrow">▼</span></button>
-                        <ul id="sort-options" class="dropdown-options">
-                            <li data-sort="padrao" class="active">Padrão</li>
-                            <li data-sort="avaliacao-desc">Mais Avaliados</li>
-                            <li data-sort="avaliacao-asc">Menos Avaliados</li>
-                            <li data-sort="ano-desc">Ano (Novos)</li>
-                            <li data-sort="ano-asc">Ano (Antigos)</li>
-                            <li data-sort="alfa">A-Z</li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="header-center">
+            <div class="search-bar-container">
+                <input type="text" id="campo-busca" placeholder="Busque por um filme...">
+                <button id="botao-busca" class="search-btn">Buscar</button>
+                <button id="botao-limpar" class="clear-btn hidden">Limpar Busca</button>
             </div>
         </div>
 
-    </header>
+        <div class="header-right">
+            <div class="header-dropdowns">
+                <div class="category-dropdown">
+                    <button id="category-dropdown-btn" class="dropdown-btn">Categoria: <span>Todos</span> <span class="arrow">▼</span></button>
+                    <ul id="category-options" class="dropdown-options"><li data-category="Todos" class="active">Todos</li><li data-category="Ação">Ação</li><li data-category="Animação">Animação</li><li data-category="Crime">Crime</li><li data-category="Drama">Drama</li><li data-category="Fantasia">Fantasia</li><li data-category="Ficção científica">Ficção científica</li><li data-category="Ficção Científica">Ficção Científica</li><li data-category="Filme">Filme</li><li data-category="Histórico">Histórico</li><li data-category="Romance">Romance</li><li data-category="Suspense">Suspense</li><li data-category="Terror">Terror</li><li data-category="Thriller">Thriller</li></ul>
+                </div>
+                <div class="sort-dropdown">
+                    <button id="sort-dropdown-btn" class="dropdown-btn">Ordenar por: <span>Padrão</span> <span class="arrow">▼</span></button>
+                    <ul id="sort-options" class="dropdown-options">
+                        <li data-sort="padrao" class="active">Padrão</li>
+                        <li data-sort="avaliacao-desc">Mais Avaliados</li>
+                        <li data-sort="avaliacao-asc">Menos Avaliados</li>
+                        <li data-sort="ano-desc">Ano (Novos)</li>
+                        <li data-sort="ano-asc">Ano (Antigos)</li>
+                        <li data-sort="alfa">A-Z</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
     <main class="main-content">
         <div class="loader hidden" role="status" aria-live="polite">Carregando filmes...</div>
