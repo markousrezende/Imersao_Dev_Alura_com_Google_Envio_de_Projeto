@@ -1,0 +1,502 @@
+[
+  {
+    "titulo": "Um Sonho de Liberdade",
+    "descricao": "Dois homens presos se unem ao longo de vários anos, encontrando consolo e redenção através de atos de decência comum.",
+    "ano": 1994,
+    "diretor": "Frank Darabont",
+    "categoria": "Drama",
+    "avaliacao": 9.3,
+    "link": "https://www.imdb.com/title/tt0111161/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Poderoso Chefão",
+    "descricao": "O patriarca de uma dinastia do crime organizado transfere o controle de seu império clandestino para seu filho relutante.",
+    "ano": 1972,
+    "diretor": "Francis Ford Coppola",
+    "categoria": "Crime",
+    "avaliacao": 9.2,
+    "link": "https://www.imdb.com/title/tt0068646/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Batman: O Cavaleiro das Trevas",
+    "descricao": "Quando a ameaça conhecida como Coringa emerge de seu passado misterioso, ele causa estragos e caos no povo de Gotham.",
+    "ano": 2008,
+    "diretor": "Christopher Nolan",
+    "categoria": "Ação",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0468569/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Poderoso Chefão 2",
+    "descricao": "A vida pregressa e a carreira de Vito Corleone nos anos 1920 em Nova York são retratadas enquanto seu filho, Michael, expande e aperta seu domínio sobre o sindicato do crime da família.",
+    "ano": 1974,
+    "diretor": "Francis Ford Coppola",
+    "categoria": "Crime",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0071562/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "12 Homens e uma Sentença",
+    "descricao": "Um jurado dissidente tenta impedir um erro judiciário, forçando seus colegas a reconsiderar as evidências.",
+    "ano": 1957,
+    "diretor": "Sidney Lumet",
+    "categoria": "Drama",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0050083/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0M2ItY2M4YjI2YjY5M2E5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "A Lista de Schindler",
+    "descricao": "Na Polônia ocupada pelos alemães, o industrial Oskar Schindler gradualmente se preocupa com sua força de trabalho judaica após testemunhar sua perseguição pelos nazistas.",
+    "ano": 1993,
+    "diretor": "Steven Spielberg",
+    "categoria": "Histórico",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0108052/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Senhor dos Anéis: O Retorno do Rei",
+    "descricao": "Gandalf e Aragorn lideram o Mundo dos Homens contra o exército de Sauron para desviar seu olhar de Frodo e Sam na sua demanda pela Montanha da Perdição.",
+    "ano": 2003,
+    "diretor": "Peter Jackson",
+    "categoria": "Fantasia",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0167260/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Pulp Fiction",
+    "descricao": "As vidas de dois assassinos da máfia, um boxeador, a esposa de um gângster e um casal de assaltantes se entrelaçam em quatro contos de violência e redenção.",
+    "ano": 1994,
+    "diretor": "Quentin Tarantino",
+    "categoria": "Crime",
+    "avaliacao": 8.9,
+    "link": "https://www.imdb.com/title/tt0110912/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+    "descricao": "Um hobbit do Condado e oito companheiros partem em uma jornada para destruir o poderoso Um Anel e salvar a Terra-média do Lorde das Trevas Sauron.",
+    "ano": 2001,
+    "diretor": "Peter Jackson",
+    "categoria": "Fantasia",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0120737/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Três Homens em Conflito",
+    "descricao": "Um caçador de recompensas e um bandido mexicano se unem contra um terceiro homem para encontrar uma fortuna em ouro enterrada.",
+    "ano": 1966,
+    "diretor": "Sergio Leone",
+    "categoria": "Ação",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0060196/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Forrest Gump: O Contador de Histórias",
+    "descricao": "As presidências de Kennedy e Johnson, o Vietnã, Watergate e outras histórias se desenrolam através da perspectiva de um homem do Alabama com um QI de 75.",
+    "ano": 1994,
+    "diretor": "Robert Zemeckis",
+    "categoria": "Drama",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0109830/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Clube da Luta",
+    "descricao": "Um trabalhador de escritório insone e um fabricante de sabão diabólico formam um clube de luta clandestino que evolui para algo muito, muito maior.",
+    "ano": 1999,
+    "diretor": "David Fincher",
+    "categoria": "Drama",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0137523/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "A Origem",
+    "descricao": "Um ladrão que rouba segredos corporativos através do uso da tecnologia de compartilhamento de sonhos recebe a tarefa inversa de plantar uma ideia na mente de um CEO.",
+    "ano": 2010,
+    "diretor": "Christopher Nolan",
+    "categoria": "Ficção Científica",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt1375666/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Matrix",
+    "descricao": "Um hacker descobre a verdade chocante sobre sua realidade quando é levado a um submundo proibido.",
+    "ano": 1999,
+    "diretor": "Lana Wachowski",
+    "categoria": "Ficção Científica",
+    "avaliacao": 8.7,
+    "link": "https://www.imdb.com/title/tt0133093/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Silêncio dos Inocentes",
+    "descricao": "Uma jovem cadete do FBI busca a ajuda de um assassino canibal encarcerado para capturar outro assassino em série.",
+    "ano": 1991,
+    "diretor": "Jonathan Demme",
+    "categoria": "Suspense",
+    "avaliacao": 8.6,
+    "link": "https://www.imdb.com/title/tt0102926/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Filme Placeholder 1",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2001,
+    "diretor": "Diretor Placeholder 1",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 2",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2002,
+    "diretor": "Diretor Placeholder 2",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 3",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2003,
+    "diretor": "Diretor Placeholder 3",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 4",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2004,
+    "diretor": "Diretor Placeholder 4",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 5",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2005,
+    "diretor": "Diretor Placeholder 5",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 6",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2006,
+    "diretor": "Diretor Placeholder 6",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 7",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2007,
+    "diretor": "Diretor Placeholder 7",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 8",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2008,
+    "diretor": "Diretor Placeholder 8",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 9",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2009,
+    "diretor": "Diretor Placeholder 9",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 10",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2010,
+    "diretor": "Diretor Placeholder 10",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 11",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2011,
+    "diretor": "Diretor Placeholder 11",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 12",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2012,
+    "diretor": "Diretor Placeholder 12",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 13",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2013,
+    "diretor": "Diretor Placeholder 13",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 14",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2014,
+    "diretor": "Diretor Placeholder 14",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 15",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2015,
+    "diretor": "Diretor Placeholder 15",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 16",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2016,
+    "diretor": "Diretor Placeholder 16",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 17",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2017,
+    "diretor": "Diretor Placeholder 17",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 18",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2018,
+    "diretor": "Diretor Placeholder 18",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 19",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2019,
+    "diretor": "Diretor Placeholder 19",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 20",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2020,
+    "diretor": "Diretor Placeholder 20",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 21",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2021,
+    "diretor": "Diretor Placeholder 21",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 22",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2022,
+    "diretor": "Diretor Placeholder 22",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 23",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2023,
+    "diretor": "Diretor Placeholder 23",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 24",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2024,
+    "diretor": "Diretor Placeholder 24",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 25",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2025,
+    "diretor": "Diretor Placeholder 25",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 26",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2026,
+    "diretor": "Diretor Placeholder 26",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 27",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2027,
+    "diretor": "Diretor Placeholder 27",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 28",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2028,
+    "diretor": "Diretor Placeholder 28",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 29",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2029,
+    "diretor": "Diretor Placeholder 29",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 30",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2030,
+    "diretor": "Diretor Placeholder 30",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 31",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2031,
+    "diretor": "Diretor Placeholder 31",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 32",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2032,
+    "diretor": "Diretor Placeholder 32",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 33",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2033,
+    "diretor": "Diretor Placeholder 33",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 34",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2034,
+    "diretor": "Diretor Placeholder 34",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  },
+  {
+    "titulo": "Filme Placeholder 35",
+    "descricao": "Placeholder gerado automaticamente.",
+    "ano": 2035,
+    "diretor": "Diretor Placeholder 35",
+    "categoria": "Placeholder",
+    "avaliacao": 0.0,
+    "link": "",
+    "poster": ""
+  }
+]

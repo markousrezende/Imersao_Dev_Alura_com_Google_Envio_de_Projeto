@@ -1,0 +1,502 @@
+[
+  {
+    "titulo": "Um Sonho de Liberdade",
+    "descricao": "Dois homens presos se unem ao longo de vários anos, encontrando consolo e redenção através de atos de decência comum.",
+    "ano": 1994,
+    "diretor": "Frank Darabont",
+    "categoria": "Drama",
+    "avaliacao": 9.3,
+    "link": "https://www.imdb.com/title/tt0111161/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Poderoso Chefão",
+    "descricao": "O patriarca de uma dinastia do crime organizado transfere o controle de seu império clandestino para seu filho relutante.",
+    "ano": 1972,
+    "diretor": "Francis Ford Coppola",
+    "categoria": "Crime",
+    "avaliacao": 9.2,
+    "link": "https://www.imdb.com/title/tt0068646/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Batman: O Cavaleiro das Trevas",
+    "descricao": "Quando a ameaça conhecida como Coringa emerge de seu passado misterioso, ele causa estragos e caos no povo de Gotham.",
+    "ano": 2008,
+    "diretor": "Christopher Nolan",
+    "categoria": "Ação",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0468569/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Poderoso Chefão 2",
+    "descricao": "A vida pregressa e a carreira de Vito Corleone nos anos 1920 em Nova York são retratadas enquanto seu filho, Michael, expande e aperta seu domínio sobre o sindicato do crime da família.",
+    "ano": 1974,
+    "diretor": "Francis Ford Coppola",
+    "categoria": "Crime",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0071562/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "12 Homens e uma Sentença",
+    "descricao": "Um jurado dissidente tenta impedir um erro judiciário, forçando seus colegas a reconsiderar as evidências.",
+    "ano": 1957,
+    "diretor": "Sidney Lumet",
+    "categoria": "Drama",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0050083/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0M2ItY2M4YjI2YjY5M2E5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "A Lista de Schindler",
+    "descricao": "Na Polônia ocupada pelos alemães, o industrial Oskar Schindler gradualmente se preocupa com sua força de trabalho judaica após testemunhar sua perseguição pelos nazistas.",
+    "ano": 1993,
+    "diretor": "Steven Spielberg",
+    "categoria": "Histórico",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0108052/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Senhor dos Anéis: O Retorno do Rei",
+    "descricao": "Gandalf e Aragorn lideram o Mundo dos Homens contra o exército de Sauron para desviar seu olhar de Frodo e Sam na sua demanda pela Montanha da Perdição.",
+    "ano": 2003,
+    "diretor": "Peter Jackson",
+    "categoria": "Fantasia",
+    "avaliacao": 9.0,
+    "link": "https://www.imdb.com/title/tt0167260/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Pulp Fiction",
+    "descricao": "As vidas de dois assassinos da máfia, um boxeador, a esposa de um gângster e um casal de assaltantes se entrelaçam em quatro contos de violência e redenção.",
+    "ano": 1994,
+    "diretor": "Quentin Tarantino",
+    "categoria": "Crime",
+    "avaliacao": 8.9,
+    "link": "https://www.imdb.com/title/tt0110912/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+    "descricao": "Um hobbit do Condado e oito companheiros partem em uma jornada para destruir o poderoso Um Anel e salvar a Terra-média do Lorde das Trevas Sauron.",
+    "ano": 2001,
+    "diretor": "Peter Jackson",
+    "categoria": "Fantasia",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0120737/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Três Homens em Conflito",
+    "descricao": "Um caçador de recompensas e um bandido mexicano se unem contra um terceiro homem para encontrar uma fortuna em ouro enterrada.",
+    "ano": 1966,
+    "diretor": "Sergio Leone",
+    "categoria": "Ação",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0060196/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Forrest Gump: O Contador de Histórias",
+    "descricao": "As presidências de Kennedy e Johnson, o Vietnã, Watergate e outras histórias se desenrolam através da perspectiva de um homem do Alabama com um QI de 75.",
+    "ano": 1994,
+    "diretor": "Robert Zemeckis",
+    "categoria": "Drama",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0109830/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Clube da Luta",
+    "descricao": "Um trabalhador de escritório insone e um fabricante de sabão diabólico formam um clube de luta clandestino que evolui para algo muito, muito maior.",
+    "ano": 1999,
+    "diretor": "David Fincher",
+    "categoria": "Drama",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt0137523/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "A Origem",
+    "descricao": "Um ladrão que rouba segredos corporativos através do uso da tecnologia de compartilhamento de sonhos recebe a tarefa inversa de plantar uma ideia na mente de um CEO.",
+    "ano": 2010,
+    "diretor": "Christopher Nolan",
+    "categoria": "Ficção Científica",
+    "avaliacao": 8.8,
+    "link": "https://www.imdb.com/title/tt1375666/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "Matrix",
+    "descricao": "Um hacker descobre a verdade chocante sobre sua realidade quando é levado a um submundo proibido.",
+    "ano": 1999,
+    "diretor": "Lana Wachowski",
+    "categoria": "Ficção Científica",
+    "avaliacao": 8.7,
+    "link": "https://www.imdb.com/title/tt0133093/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "O Silêncio dos Inocentes",
+    "descricao": "Uma jovem cadete do FBI busca a ajuda de um assassino canibal encarcerado para capturar outro assassino em série.",
+    "ano": 1991,
+    "diretor": "Jonathan Demme",
+    "categoria": "Suspense",
+    "avaliacao": 8.6,
+    "link": "https://www.imdb.com/title/tt0102926/",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "titulo": "A Sombra Do Perigo",
+    "descricao": "A polícia de Macau remove o policial que é especialista em rastrear a aposentadoria para ajudar a capturar um grupo perigoso de ladrões profissionais.",
+    "ano": 2025,
+    "diretor": "Larry Yang",
+    "categoria": "Ação",
+    "avaliacao": 6.37,
+    "link": "https://www.imdb.com/title/tt34610311/",
+    "poster": "https://image.tmdb.org/t/p/w500/uLmjQTgqXtuXRPOWfHB4vOmbgzt.jpg"
+  },
+  {
+    "titulo": "Plano em Família 2",
+    "descricao": "Agora que os dias de assassino de Dan ficaram para trás, tudo o que ele quer no Natal é passar um tempo de qualidade com os filhos. Mas quando descobre que a filha tem seus próprios planos, ele marca uma viagem em família para Londres, colocando todos na mira de um inimigo inesperado.",
+    "ano": 2025,
+    "diretor": "Simon Cellan Jones",
+    "categoria": "Ação",
+    "avaliacao": 6.608,
+    "link": "https://www.imdb.com/title/tt34276058/",
+    "poster": "https://image.tmdb.org/t/p/w500/aLgvLNWETZ2wtPzU3E7lavEpCJw.jpg"
+  },
+  {
+    "titulo": "Frankenstein",
+    "descricao": "Dr. Victor Frankenstein, um cientista brilhante, mas egoísta, dá vida a uma criatura em um experimento monstruoso que acaba levando à ruína tanto do criador quanto de sua trágica criação.",
+    "ano": 2025,
+    "diretor": "Guillermo del Toro",
+    "categoria": "Drama",
+    "avaliacao": 7.764,
+    "link": "https://www.imdb.com/title/tt1312221/",
+    "poster": "https://image.tmdb.org/t/p/w500/cXsMxClCcAF1oMwoXZvbKwWoNeS.jpg"
+  },
+  {
+    "titulo": "Uma Batalha Após a Outra",
+    "descricao": "Bob Ferguson (DiCaprio), um ex-revolucionário, viveu a juventude como integrante de um grupo de guerrilha, mas agora a sua fracassada vida o atinge em cheio quando o mais cruel de seus inimigos retorna após passar 16 anos e resolve sequestrar sua filha. Diante de tamanha urgência, ele reúne seus antigos companheiros e embarca em um implacável desafio em que precisará correr contra o tempo para salvar quem ele mais ama.",
+    "ano": 2025,
+    "diretor": "Paul Thomas Anderson",
+    "categoria": "Ação",
+    "avaliacao": 7.493,
+    "link": "https://www.imdb.com/title/tt30144839/",
+    "poster": "https://image.tmdb.org/t/p/w500/2peYXW6CoruehDnKJGMjl2NuaNB.jpg"
+  },
+  {
+    "titulo": "A Lenda: Em Busca do Medalhão Sagrado",
+    "descricao": "Um arqueólogo descobriu relíquias em uma geleira que se assemelhavam a um pingente de jade dos sonhos, o que levou ele e sua equipe a explorar as profundezas da geleira.",
+    "ano": 2024,
+    "diretor": "唐季禮",
+    "categoria": "Ação",
+    "avaliacao": 6.672,
+    "link": "https://www.imdb.com/title/tt27589902/",
+    "poster": "https://image.tmdb.org/t/p/w500/5FwRyhdnR40XMlINUR6CPu2hmqr.jpg"
+  },
+  {
+    "titulo": "749局",
+    "descricao": "",
+    "ano": 2024,
+    "diretor": "陆川",
+    "categoria": "Ação",
+    "avaliacao": 4.632,
+    "link": "https://www.imdb.com/title/tt10210064/",
+    "poster": "https://image.tmdb.org/t/p/w500/xW640PVBXLlzhrkQnAcvWNsehIO.jpg"
+  },
+  {
+    "titulo": "Caçada Sangrenta",
+    "descricao": "Um grupo de militares é enviado a uma ilha do Pacífico para investigar o desaparecimento de fuzileiros, possivelmente capturados pelo Exército Imperial Japonês. No entanto, o grupo descobre que os fuzileiros foram massacrados por lobisomens e terão que lutar contra eles se quiserem sobreviver.",
+    "ano": 2024,
+    "diretor": "Louis Mandylor",
+    "categoria": "Ação",
+    "avaliacao": 6.784,
+    "link": "https://www.imdb.com/title/tt23553640/",
+    "poster": "https://image.tmdb.org/t/p/w500/5Po7cBJ7YWLE3HbkoJKZyCJ4ESq.jpg"
+  },
+  {
+    "titulo": "The Prosecutor",
+    "descricao": "Um jovem pobre é injustamente acusado de tráfico de drogas após ser enganado. Um ex-promotor investiga o caso e descobre o esquema de uma equipe de advogados corruptos.",
+    "ano": 2024,
+    "diretor": "Donnie Yen",
+    "categoria": "Ação",
+    "avaliacao": 6.721,
+    "link": "https://www.imdb.com/title/tt30024043/",
+    "poster": "https://image.tmdb.org/t/p/w500/2tH6utnYvlTpGvbQCs5FdeQIKFp.jpg"
+  },
+  {
+    "titulo": "Nahual",
+    "descricao": "",
+    "ano": 2025,
+    "diretor": "Ricardo Islas",
+    "categoria": "Filme",
+    "avaliacao": 3.25,
+    "link": "https://www.imdb.com/title/tt32293642/",
+    "poster": "https://image.tmdb.org/t/p/w500/gQZn4Rx3LpIBnFunH1AKxAMYYd9.jpg"
+  },
+  {
+    "titulo": "Predador: Terras Selvagens",
+    "descricao": "No futuro, em um planeta remoto, um jovem Predador, rejeitado por seu clã, encontra em Thia uma aliada improvável e embarca em uma jornada traiçoeira em busca do adversário supremo.",
+    "ano": 2025,
+    "diretor": "Dan Trachtenberg",
+    "categoria": "Ação",
+    "avaliacao": 7.422,
+    "link": "https://www.imdb.com/title/tt31227572/",
+    "poster": "https://image.tmdb.org/t/p/w500/35jbGTgaC6I7qIT36gAu1c8CPYt.jpg"
+  },
+  {
+    "titulo": "Um Dia Fora de Controle",
+    "descricao": "Quando o contador desempregado Brian leva seu filho para brincar com o filho de Jeff, pai que fica em casa, ele espera um dia tranquilo. Em vez disso, eles acabam perseguidos por mercenários, e Brian — totalmente despreparado — precisa sobreviver a um obstáculo absurdo atrás do outro. A vida de pai de família vira um caos de filme de ação nesta aventura hilária.",
+    "ano": 2025,
+    "diretor": "Luke Greenfield",
+    "categoria": "Ação",
+    "avaliacao": 6.171,
+    "link": "https://www.imdb.com/title/tt31425731/",
+    "poster": "https://image.tmdb.org/t/p/w500/auLOTlulof19GSPrNomyG7myfzN.jpg"
+  },
+  {
+    "titulo": "A Guerra dos Mundos",
+    "descricao": "Will Radford é um renomado analista de cibersegurança do Departamento de Segurança Interna dos Estados Unidos, encarregado de rastrear possíveis ameaças à segurança nacional por meio de um programa de vigilância em massa. No entanto, um ataque inesperado por uma entidade desconhecida o leva a suspeitar que o governo esteja escondendo algo dele… e do restante do mundo.",
+    "ano": 2025,
+    "diretor": "Rich Lee",
+    "categoria": "Ficção científica",
+    "avaliacao": 4.294,
+    "link": "https://www.imdb.com/title/tt13186306/",
+    "poster": "https://image.tmdb.org/t/p/w500/hhskI8zwPqzE3wWA3gDNSCvF22z.jpg"
+  },
+  {
+    "titulo": "Wicked: Parte II",
+    "descricao": "Elphaba, agora demonizada como a Bruxa Má do Oeste, vive no exílio, escondida na floresta de Oz, e tenta desesperadamente expor a verdade que conhece sobre o Mágico. Enquanto isso, Glinda se tornou o glamouroso símbolo da bondade para todo o reino de Oz e desfruta das vantagens da fama e da popularidade. Quando uma multidão enfurecida se ergue contra a Bruxa Má, Glinda e Elphaba vão precisar se unir uma última vez.",
+    "ano": 2025,
+    "diretor": "Jon M. Chu",
+    "categoria": "Romance",
+    "avaliacao": 6.6,
+    "link": "https://www.imdb.com/title/tt19847976/",
+    "poster": "https://image.tmdb.org/t/p/w500/dtEQlBNKMlT2vIoRFkPSErZBKQg.jpg"
+  },
+  {
+    "titulo": "JUJUTSU KAISEN: Execução",
+    "descricao": "Yuji Itadori, acompanhado por seus colegas de classe e outros feiticeiros jujutsu de alto nível, entra na briga em um confronto sem precedentes de maldições: o Incidente de Shibuya. No rescaldo, dez colônias em todo o Japão são transformadas em antros de maldições em um plano orquestrado por Noritoshi Kamo, o feiticeiro mais perverso da história.",
+    "ano": 2025,
+    "diretor": "御所園翔太",
+    "categoria": "Animação",
+    "avaliacao": 3.5,
+    "link": "https://www.imdb.com/title/tt38121182/",
+    "poster": "https://image.tmdb.org/t/p/w500/sa646tMUGfCdOvwnHvzqycxzSoB.jpg"
+  },
+  {
+    "titulo": "Ya no quedan junglas",
+    "descricao": "",
+    "ano": 2025,
+    "diretor": "Gabriel Beristain",
+    "categoria": "Ação",
+    "avaliacao": 6.4,
+    "link": "https://www.imdb.com/title/tt32140922/",
+    "poster": "https://image.tmdb.org/t/p/w500/pzKeASTj4HitqVXB1cdvswmMV50.jpg"
+  },
+  {
+    "titulo": "Truque de Mestre: O 3° Ato",
+    "descricao": "Os Quatro Cavaleiros estão de volta com uma nova geração de ilusionistas e uma trama cheia de reviravoltas, mágicas e surpresas, em um truque que envolve a joia mais valiosa do mundo.",
+    "ano": 2025,
+    "diretor": "Ruben Fleischer",
+    "categoria": "Thriller",
+    "avaliacao": 6.2,
+    "link": "https://www.imdb.com/title/tt4712810/",
+    "poster": "https://image.tmdb.org/t/p/w500/uZ8C2vVGfK5SYASiioTmtZDJjpv.jpg"
+  },
+  {
+    "titulo": "Stand Your Ground",
+    "descricao": "",
+    "ano": 2025,
+    "diretor": "Fansu Njie",
+    "categoria": "Ação",
+    "avaliacao": 4.491,
+    "link": "https://www.imdb.com/title/tt30826955/",
+    "poster": "https://image.tmdb.org/t/p/w500/vKB59pPIYvjRxxEXoRoyUfaiBoD.jpg"
+  },
+  {
+    "titulo": "O Telefone Preto 2",
+    "descricao": "Quatro anos após escapar de The Grabber, Finney Blake luta com sua vida após o cativeiro. Quando sua irmã Gwen começa a receber ligações em sonhos do telefone preto e a ter visões perturbadoras de três garotos sendo perseguidos em um acampamento de inverno conhecido como Alpine Lake, os irmãos se determinam a desvendar o mistério e confrontar um assassino que se tornou mais poderoso na morte e mais significativo para eles do que qualquer um poderia imaginar.",
+    "ano": 2025,
+    "diretor": "Scott Derrickson",
+    "categoria": "Terror",
+    "avaliacao": 6.86,
+    "link": "https://www.imdb.com/title/tt29644189/",
+    "poster": "https://image.tmdb.org/t/p/w500/urKKKnvRR8hOC3xGSxGb3ZFmXen.jpg"
+  },
+  {
+    "titulo": "Demon Slayer: Kimetsu no Yaiba Castelo Infinito",
+    "descricao": "Enquanto os membros dos caçadores e os Hashira participavam de um rigoroso programa de fortalecimento coletivo, conhecido como Treinamento dos Hashira, em preparação para a batalha final contra os demônios, Muzan Kibutsuji aparece na Mansão Ubuyashiki. Com a vida do líder da organização em risco, Tanjiro e os Hashira correm até o quartel-general, mas acabam sendo lançados, pelas mãos de Muzan, em uma queda profunda rumo a um espaço misterioso para um confronto final, o Castelo Infinito.",
+    "ano": 2025,
+    "diretor": "外崎春雄",
+    "categoria": "Animação",
+    "avaliacao": 7.583,
+    "link": "https://www.imdb.com/title/tt32820897/",
+    "poster": "https://image.tmdb.org/t/p/w500/c55sXCaQBj3vuHqZe62tv90xCQS.jpg"
+  },
+  {
+    "titulo": "Triplo X",
+    "descricao": "O ex-atleta de esportes extremos Xander \"XXX\" Cage, famoso por suas acrobacias que desafiam a morte, é convencido de que pode ter sucesso em ações que espiões convencionais falharam. Xander é recrutado pelo agente Gibbons para se tornar um tipo diferente de agente secreto. Agora, em uma perigosa missão, ele precisa usar todas as suas habilidades para combater um inimigo mortal.",
+    "ano": 2002,
+    "diretor": "Rob Cohen",
+    "categoria": "Ação",
+    "avaliacao": 5.976,
+    "link": "https://www.imdb.com/title/tt0295701/",
+    "poster": "https://image.tmdb.org/t/p/w500/lpmyeqSR2Pc7ytfTp1ScD3ferX4.jpg"
+  },
+  {
+    "titulo": "大雨",
+    "descricao": "",
+    "ano": 2024,
+    "diretor": "不思凡",
+    "categoria": "Animação",
+    "avaliacao": 6.182,
+    "link": "https://www.imdb.com/title/tt29615160/",
+    "poster": "https://image.tmdb.org/t/p/w500/3CsivmtcjwMUvU0Mu7zZgnK9QaR.jpg"
+  },
+  {
+    "titulo": "Tee Yai: Nascido para o Mal",
+    "descricao": "Na Bangkok da década de 1980, um ladrão astuto comete uma série de assaltos ousados, impressionando as autoridades e o público. Até que um policial decide ir atrás dele.",
+    "ano": 2025,
+    "diretor": "Nonzee Nimibutr",
+    "categoria": "Crime",
+    "avaliacao": 4.814,
+    "link": "https://www.imdb.com/title/tt35669044/",
+    "poster": "https://image.tmdb.org/t/p/w500/2Au17UGDQMBr3nR93Gg4TR78X8j.jpg"
+  },
+  {
+    "titulo": "Antes da Lua Cheia",
+    "descricao": "Uma jovem garçonete é sequestrada por um culto religioso, que está determinado a curá-la da maldição do lobisomem, um vírus sexualmente transmissível, ou matá-la no processo. Para sobreviver, ela precisa escapar antes da primeira lua cheia.",
+    "ano": 2025,
+    "diretor": "Peter McLeod",
+    "categoria": "Terror",
+    "avaliacao": 4.159,
+    "link": "https://www.imdb.com/title/tt26920256/",
+    "poster": "https://image.tmdb.org/t/p/w500/hcjYvv4k9qs0lDG1Q3GIglT30IW.jpg"
+  },
+  {
+    "titulo": "Zootopia 2",
+    "descricao": "Os detetives Judy Hopps e Nick Wilde se encontram na trilha sinuosa de um réptil misterioso que chega a Zootopia e vira a metrópole dos mamíferos de cabeça para baixo.",
+    "ano": 2025,
+    "diretor": "Jared Bush",
+    "categoria": "Animação",
+    "avaliacao": 7.2,
+    "link": "https://www.imdb.com/title/tt26443597/",
+    "poster": "https://image.tmdb.org/t/p/w500/fthvYnjERbXt3ILjLjHpPNd5IVJ.jpg"
+  },
+  {
+    "titulo": "Terror em Shelby Oaks",
+    "descricao": "Acompanhe a busca desesperada de Mia por sua irmã desaparecida, Riley, uma youtuber famosa por investigar o paranormal. A obsessão de Mia recomeça quando ela recebe uma fita misteriosa com indícios de que Riley ainda pode estar viva. A partir daí, ela mergulha em uma espiral de horror de um mal desconhecido, repleta de revelações perturbadoras e uma atmosfera sufocante.",
+    "ano": 2025,
+    "diretor": "Chris Stuckmann",
+    "categoria": "Terror",
+    "avaliacao": 5.693,
+    "link": "https://www.imdb.com/title/tt14999684/",
+    "poster": "https://image.tmdb.org/t/p/w500/jl200vudAx2hhpg3mxZy1KCJgeK.jpg"
+  },
+  {
+    "titulo": "Laberinto de sombras",
+    "descricao": "",
+    "ano": 2024,
+    "diretor": "Alfredo Contreras",
+    "categoria": "Terror",
+    "avaliacao": 4.5,
+    "link": "",
+    "poster": "https://image.tmdb.org/t/p/w500/565kBAr0hvgLbJKyAd3dUKk2xn0.jpg"
+  },
+  {
+    "titulo": "Chainsaw Man – O Filme: Arco da Reze",
+    "descricao": "Denji finalmente vive como o temido Homem-Motosserra, um jovem com coração de demônio que integra a Divisão Especial 4 de Caçadores de Demônios. Depois de um encontro marcante com Makima, a mulher de seus sonhos, ele busca refúgio da chuva e acaba conhecendo Reze, a misteriosa atendente de um café.",
+    "ano": 2025,
+    "diretor": "吉原達矢",
+    "categoria": "Animação",
+    "avaliacao": 7.805,
+    "link": "https://www.imdb.com/title/tt30472557/",
+    "poster": "https://image.tmdb.org/t/p/w500/tj1XhCQ2Rw2sT2o7lIdqPIYvjsx.jpg"
+  },
+  {
+    "titulo": "Orang Ikan",
+    "descricao": "No Pacífico, em 1944, um soldado japonês e um prisioneiro de guerra britânico estão presos em uma ilha deserta, caçados por uma criatura mortal. Dois inimigos mortais precisam se unir para sobreviver ao desconhecido.",
+    "ano": 2025,
+    "diretor": "Mike Wiluan",
+    "categoria": "Terror",
+    "avaliacao": 5.716,
+    "link": "https://www.imdb.com/title/tt29262075/",
+    "poster": "https://image.tmdb.org/t/p/w500/x1JOs4xWNr1QYjDAXHxWw1NJ7Sq.jpg"
+  },
+  {
+    "titulo": "Sonhos de Trem",
+    "descricao": "Um lenhador leva uma vida tranquila enquanto lida com o amor e a perda em uma época de profundas transformações nos Estados Unidos do começo do século XX.",
+    "ano": 2025,
+    "diretor": "Clint Bentley",
+    "categoria": "Drama",
+    "avaliacao": 7.782,
+    "link": "https://www.imdb.com/title/tt29768334/",
+    "poster": "https://image.tmdb.org/t/p/w500/iF1SxvdSNWkEfKlZnLzJbSsg4oT.jpg"
+  },
+  {
+    "titulo": "Guerreiras do K-Pop",
+    "descricao": "Quando não estão lotando estádios, as estrelas do K-pop Rumi, Mira e Zoey usam seus poderes secretos para proteger os fãs contra ameaças sobrenaturais.",
+    "ano": 2025,
+    "diretor": "Maggie Kang",
+    "categoria": "Fantasia",
+    "avaliacao": 8.21,
+    "link": "https://www.imdb.com/title/tt14205554/",
+    "poster": "https://image.tmdb.org/t/p/w500/gbdMa7woiuF7IiEB5Spwv5od4oo.jpg"
+  },
+  {
+    "titulo": "Medo no Pacífico",
+    "descricao": "Quatro amigas viajam para uma ilha na Polinésia Francesa em busca de ondas que ninguém surfou. Elas são levadas por um ex-militar que avisa a uma delas que o local foi apagado de todos os mapas e que ninguém nunca retornou de lá.",
+    "ano": 2024,
+    "diretor": "Jacques Kluger",
+    "categoria": "Terror",
+    "avaliacao": 4.382,
+    "link": "https://www.imdb.com/title/tt28290159/",
+    "poster": "https://image.tmdb.org/t/p/w500/knEPrIc7ZwUGiyb3oRvLOkj1qm6.jpg"
+  },
+  {
+    "titulo": "Depois da Caçada",
+    "descricao": "Uma professora universitária (Julia Roberts) enfrenta um grande desafio quando uma estudante (Ayo Edebiri) acusa gravemente um professor (Andrew Garfield), e um segredo obscuro do seu próprio passado ameaça vir à tona.",
+    "ano": 2025,
+    "diretor": "Luca Guadagnino",
+    "categoria": "Drama",
+    "avaliacao": 6.029,
+    "link": "https://www.imdb.com/title/tt32159989/",
+    "poster": "https://image.tmdb.org/t/p/w500/aYhUKN7plYmCJyPbgKgroDDfYyM.jpg"
+  },
+  {
+    "titulo": "Code 3",
+    "descricao": "",
+    "ano": 2025,
+    "diretor": "Christopher Leone",
+    "categoria": "Ação",
+    "avaliacao": 6.694,
+    "link": "https://www.imdb.com/title/tt26394837/",
+    "poster": "https://image.tmdb.org/t/p/w500/gIAYMDb5mIAeCAj76q1sRsKjkzo.jpg"
+  },
+  {
+    "titulo": "Invocação do Mal - O Último Ritual",
+    "descricao": "Neste último capítulo, os Warren enfrentam mais um caso aterrorizante, desta vez envolvendo entidades misteriosas que desafiam sua experiência. Ed (Patrick Wilson) e Lorraine (Vera Farmiga) se veem obrigados a encarar seus maiores medos, colocando suas vidas em risco em uma batalha final contra forças malignas.",
+    "ano": 2025,
+    "diretor": "Michael Chaves",
+    "categoria": "Terror",
+    "avaliacao": 6.983,
+    "link": "https://www.imdb.com/title/tt22898462/",
+    "poster": "https://image.tmdb.org/t/p/w500/40nHGUfypLhlr7gJx8At1IbYkaK.jpg"
+  },
+  {
+    "titulo": "Nos Seus Sonhos",
+    "descricao": "Um casal de irmãos viaja pela paisagem absurda dos próprios sonhos para pedir ao Sandman que realize seu desejo de uma família perfeita.",
+    "ano": 2025,
+    "diretor": "Alex Woo",
+    "categoria": "Animação",
+    "avaliacao": 7.08,
+    "link": "https://www.imdb.com/title/tt27604215/",
+    "poster": "https://image.tmdb.org/t/p/w500/zHPgL2f9nZaYUkOXZNsV1Nq9Tt1.jpg"
+  }
+]
