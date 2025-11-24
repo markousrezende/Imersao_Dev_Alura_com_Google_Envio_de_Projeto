@@ -8,8 +8,9 @@ const catalogo = {
         loader: document.querySelector(".loader"),
         sortDropdownBtn: document.getElementById('sort-dropdown-btn'),
         sortOptions: document.getElementById('sort-options'),
-        categoryDropdownBtn: document.getElementById('category-dropdown-btn'), // O seletor do pai estava causando o erro
+        categoryDropdownBtn: document.getElementById('category-dropdown-btn'),
         categoryOptions: document.getElementById('category-options'),
+        logoHomeLink: document.getElementById('logo-home-link'), // <-- NOVO: Referência ao link da logo
     },
     // Armazena os dados dos filmes
     dados: [],
@@ -36,15 +37,23 @@ const catalogo = {
     // 2. Boas Práticas: Centraliza todos os "escutadores de evento" em um único método.
     vincularEventos() {
         this.elements.botaoBusca.addEventListener('click', () => this.iniciarBusca());
-        this.elements.botaoLimpar.addEventListener('click', () => this.limparBusca());
+        // MUDA AQUI: O botão Limpar agora chama o reset completo
+        this.elements.botaoLimpar.addEventListener('click', () => this.resetCatalogo()); 
         this.elements.campoBusca.addEventListener('keyup', (event) => {
             if (event.key === 'Enter') {
                 this.iniciarBusca();
             }
         });
 
+        // NOVO: Evento para resetar o catálogo ao clicar na logo/nome do site
+        if (this.elements.logoHomeLink) {
+            this.elements.logoHomeLink.addEventListener('click', (event) => {
+                event.preventDefault(); // IMPEDE A RECARGA DA PÁGINA
+                this.resetCatalogo(); 
+            });
+        }
+        
         this.elements.sortDropdownBtn.addEventListener('click', () => {
-            // A classe 'hidden' não é mais usada para controlar a visibilidade do dropdown animado
             this.elements.sortDropdownBtn.classList.toggle('open');
             this.elements.sortDropdownBtn.setAttribute('aria-expanded', this.elements.sortDropdownBtn.classList.contains('open'));
         });
@@ -124,17 +133,30 @@ const catalogo = {
         this.atualizarVisualizacao();
     },
 
-    limparBusca() {
+    // FUNÇÃO LIMPARBUSCA RENOMEADA PARA resetCatalogo()
+    resetCatalogo() {
+        // 1. Limpa o campo de busca
         this.elements.campoBusca.value = '';
-        this.dadosAtuais = this.dados;
-        this.elements.botaoLimpar.classList.add('hidden'); // Esconde o botão de limpar
-        this.ordenacaoAtual = { tipo: 'padrao', texto: 'Padrão' }; // Reseta a ordenação
+        this.elements.botaoLimpar.classList.add('hidden'); 
+
+        // 2. Reseta a ordenação para 'Padrão'
+        this.ordenacaoAtual = { tipo: 'padrao', texto: 'Padrão' }; 
         this.elements.sortDropdownBtn.querySelector('span').textContent = this.ordenacaoAtual.texto;
-        // Marca a opção 'Padrão' como ativa
+        
+        // Marca a opção 'Padrão' como ativa visualmente
         this.elements.sortOptions.querySelectorAll('li').forEach(li => li.classList.remove('active'));
-        this.elements.sortOptions.querySelector('li[data-sort="padrao"]').classList.add('active');
-        this.resetarFiltroCategoria();
+        const padraoLi = this.elements.sortOptions.querySelector('li[data-sort="padrao"]');
+        if (padraoLi) padraoLi.classList.add('active');
+        
+        // 3. Reseta o filtro de Categoria para 'Todos'
+        this.resetarFiltroCategoria(); 
+
+        // 4. Volta a exibir o catálogo original e re-renderiza
+        this.dadosAtuais = this.dados; 
         this.atualizarVisualizacao();
+        
+        // 5. Rola a página para o topo (Melhoria de UX)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     },
 
     definirOrdenacao(tipo, texto) {
