@@ -3,16 +3,12 @@
 }
 
 :root {
-    /* Apple TV-inspired approximate palette */
-    --bg-color: #0a0a0b;          /* very dark background */
-    --primary-color: #111215;     /* slightly lighter than bg for borders */
-    --logo-accent: #5ac8ff;       /* cyan/turquoise accent like Apple TV highlights */
-    --accent-color: #ffffff;      /* bright accent (used for CTAs/text on colored backgrounds) */
-    --text-primary: #ffffff;      /* main text */
-    --text-secondary: #c8d0d5;    /* Aumentado o brilho para melhor contraste */
-    --muted: rgba(255,255,255,0.06); /* subtle borders and dividers */
-    --glow: rgba(90,200,255,0.14); /* accent glow */
-    --panel-bg: rgba(255,255,255,0.02); /* translucent panels */
+    --primary-color: #8B0000; /* Deep Red (Cinema Velvet) */
+    --logo-accent: #f05a28;   /* Logo Orange/Red */
+    --accent-color: #d4af37;  /* Aged Gold */
+    --bg-color: #141414;      /* Matte Black */
+    --text-primary: #f5f5dc;  /* Beige/Cream Text */
+    --text-secondary: #a0a0a0;/* Lighter Gray */
 }
 
 body {
@@ -24,75 +20,42 @@ body {
 }
 
 header {
-    padding: 1.5rem 2rem;
-    display: flex; /* Mantém o header como um container flex */
+    /* Removidas as regras flexbox daqui, agora estão no .site-inner */
+    padding: 1.5rem 0; /* Remove padding lateral, o site-inner cuida disso */
     position: relative;
     top: 0;
-    /* Usando var(--bg-color) e garantindo a transparência no final */
-    background: linear-gradient(to bottom, var(--bg-color) 80%, transparent);
+    background: linear-gradient(to bottom, rgba(20, 20, 20, 1) 80%, rgba(20, 20, 20, 0));
     box-shadow: none;
     z-index: 10;
-    align-items: center;
 }
 
-/* Inner container to keep layout centered and symmetric */
+/* Novo Container para Centralizar e Aplicar o Flexbox */
 .site-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between; /* CRUCIAL: Distribui espaço entre os 3 blocos */
-    align-items: center;
-    gap: 1.5rem; /* Aumenta o espaçamento entre os blocos principais */
+    max-width: 1200px; /* Largura máxima para centralização */
+    margin: 0 auto; /* Centraliza o bloco na página */
+    padding: 0 2rem; /* Adiciona padding lateral para telas grandes */
+    
+    display: flex; /* Ativa o Flexbox para o alinhamento horizontal */
+    justify-content: space-between; /* Distribui o espaço entre os 3 blocos */
+    align-items: center; /* Alinha verticalmente no centro */
+    
     width: 100%;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
+    gap: 1.5rem;
 }
 
-.site-inner .search-bar-container {
-    max-width: 640px;
-}
-
-/* Header columns */
+/* Header columns (Left, Center, Right) */
 .header-left {
-    display: flex;
-    align-items: center;
     flex-shrink: 0; /* Impede que o logo encolha */
-    min-width: 180px; /* Garante espaço mínimo para o logo */
 }
 .header-center {
-    flex: 1 1 auto; /* PERMITE CRESCER E OCUPAR O ESPAÇO CENTRAL */
-    display: flex;
-    justify-content: center;
-    min-width: 250px; /* Evita que a barra de busca seja espremida demais */
-    max-width: 500px; /* Limita a largura máxima da busca */
+    flex-grow: 1; /* Permite que a barra de busca ocupe o espaço restante */
+    max-width: 600px; /* Limita o tamanho máximo da busca para estética */
 }
 .header-right {
+    flex-shrink: 0; /* Impede que os filtros encolham */
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 1.5rem;
-    flex-shrink: 0; /* Impede que as ações encolham */
 }
-
-/* Categories navigation (below header) */
-.categories-nav {
-    background-color: transparent;
-    border-top: 1px solid rgba(255,255,255,0.02);
-    border-bottom: 1px solid rgba(255,255,255,0.02);
-    padding: 0.4rem 0;
-}
-.categories-list {
-    list-style: none;
-    display: flex;
-    gap: 1.25rem;
-    padding: 0;
-    margin: 0;
-}
-.categories-list a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 600;
-}
-.categories-list a:hover { color: var(--logo-accent); }
 
 /* --- Logo --- */
 .logo-container {
@@ -104,61 +67,9 @@ header {
 }
 
 .logo {
-    height: 40px; /* Define uma altura fixa para o logo */
-    width: auto;  /* Garante que a largura seja ajustada proporcionalmente */
+    height: 60px;
+    width: auto;
 }
-
-
-
-.footer {
-    padding: 2rem 1rem;
-    background-color: var(--bg-color);
-    border-top: 2px solid var(--primary-color);
-    font-size: 0.9rem;
-}
-
-/* Inner footer to align TMDb ack left and links right */
-.footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center; /* Alinha verticalmente os itens */
-    justify-content: space-between;
-    gap: 2rem; /* Aumenta o espaço entre os blocos */
-    width: 100%;
-}
-
-.footer-nav .footer-links {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.5rem;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-nav .footer-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-links a:hover {
-    color: var(--accent-color);
-}
-
-.footer-meta .copyright {
-    margin: 0;
-    white-space: nowrap; /* Impede que o texto quebre a linha */
-}
-
-.footer-meta .copyright a {
-    color: var(--text-secondary);
-    text-decoration: underline;
-}
-
-.footer-meta .copyright a:hover { color: var(--accent-color); }
-
 
 header h1 {
     font-size: 2rem;
@@ -182,26 +93,26 @@ header h1 span {
 
 /* --- Barra de Busca Unificada (Estilo Amazon) --- */
 .search-bar-container {
-    flex-grow: 1; /* Faz a barra de busca crescer para preencher o espaço */
+    /* REMOVIDO flex-grow: 1; pois o header-center já está crescendo */
     display: flex;
     border-radius: 4px;
     overflow: visible;
-    border: 1px solid var(--muted);
+    border: 1px solid #333;
     background-color: #1f1f1f;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-bar-container:focus-within {
-    border-color: var(--logo-accent);
-    box-shadow: 0 0 14px var(--glow);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
 }
 
 .category-options {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--panel-bg);
-    border: 1px solid var(--muted);
+    background-color: #2a2a2a;
+    border: 1px solid #444;
     border-radius: 4px;
     list-style: none;
     padding: 0.5rem 0;
@@ -217,7 +128,7 @@ header h1 span {
     background: transparent;
     font-family: inherit;
     font-size: 1rem;
-    transition: all 0.2s ease; /* O input cresce dentro do search-bar-container */
+    transition: all 0.2s ease;
     flex-grow: 1;
     color: var(--text-primary);
 }
@@ -228,50 +139,46 @@ div input::placeholder {
 
 input:focus {
     outline: none;
-    border-color: var(--logo-accent);
-    box-shadow: 0 0 10px var(--glow);
 }
 
 /* --- Botões de Ação --- */
 .search-btn, .clear-btn {
-    padding: 0.6rem 1.2rem;
-    border: 1px solid var(--muted);
+    padding: 0.6rem 1.5rem;
+    border: none;
     cursor: pointer;
-    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    transition: all 0.2s ease;
     font-family: inherit;
-    font-weight: 600;
-    font-size: 0.98rem;
+    font-weight: 500;
+    font-size: 1rem;
     white-space: nowrap;
-    background-color: var(--logo-accent);
+    transition: all 0.2s ease;
+    background-color: var(--accent-color);
     color: var(--bg-color);
-    border-radius: 6px;
-    box-shadow: 0 2px 0 rgba(1,180,228,0.06);
 }
 
-.search-btn:hover, .clear-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 22px var(--glow);
+.sort-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
 }
 
 .category-btn {
     padding: 0.4rem 0.8rem;
     border-radius: 1rem;
-    border: 1px solid rgba(234,248,252,0.06);
-    background-color: transparent; 
+    border: 1px solid var(--accent-color);
+    background-color: transparent;
     color: var(--text-secondary);
     cursor: pointer;
     font-family: inherit;
-    transition: background-color 0.18s, color 0.18s;
-    opacity: 0.9;
+    transition: all 0.2s ease;
+    opacity: 0.8;
     width: 100%; /* Faz os botões ocuparem a largura da sidebar */
     text-align: left;
 }
 
-.category-btn:hover, .category-btn.active { 
+.category-btn:hover, .category-btn.active {
     background-color: var(--accent-color);
     color: var(--bg-color);
     opacity: 1;
-    box-shadow: 0 6px 16px rgba(144,206,161,0.04);
 }
 
 .category-dropdown,
@@ -282,23 +189,22 @@ input:focus {
 /* Classe genérica para botões de dropdown */
 .dropdown-btn {
     padding: 0.6rem 1.2rem;
-    border: 1px solid rgba(234,248,252,0.06);
+    border: 1px solid #444;
     border-radius: 4px;
-    background-color: transparent;
+    background-color: #2a2a2a;
     color: var(--text-secondary);
     cursor: pointer;
     font-family: inherit;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: background-color 0.18s, border-color 0.18s, box-shadow 0.18s;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
 .dropdown-btn:hover {
-    background-color: rgba(90,200,255,0.04);
-    border-color: rgba(90,200,255,0.12);
-    box-shadow: 0 6px 18px rgba(90,200,255,0.04);
+    background-color: #333;
+    border-color: #555;
 }
 
 .dropdown-btn .arrow {
@@ -315,45 +221,15 @@ input:focus {
     position: absolute;
     top: 100%;
     right: 0; /* Alinha o menu com o lado direito do botão */
-    background-color: rgba(30, 30, 32, 0.8); /* Fundo mais sólido com transparência */
-    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
     list-style: none;
     padding: 0.5rem 0;
-    margin: 0.5rem 0 0 0; /* Aumenta a distância do botão */
+    margin: 0.25rem 0 0 0;
     z-index: 20;
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    opacity: 0; /* Começa invisível para animação */
-    transform: translateY(-10px); /* Começa um pouco acima para animação */
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    pointer-events: none; /* Impede interação quando escondido */
-}
-
-/* Mostra o dropdown quando o botão está aberto */
-.dropdown-btn.open + .dropdown-options {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.dropdown-options li {
-    padding: 0.75rem 1.25rem;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.dropdown-options li:hover {
-    background-color: rgba(90, 200, 255, 0.1); /* Destaque no hover */
-}
-
-.dropdown-options li.active::after {
-    content: '✓'; /* Ícone de check para a opção ativa */
-    color: var(--logo-accent);
 }
 
 /* --- Container dos Cards --- */
@@ -364,8 +240,6 @@ input:focus {
     gap: 2rem;
     padding: 2rem 1rem; /* Espaçamento interno para o container não colar nas bordas */
     width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
 }
 
 .card {
@@ -374,8 +248,8 @@ input:focus {
     flex-basis: 240px; /* Largura base do card */
     flex-grow: 1;      /* Permite que o card cresça para preencher o espaço */
     max-width: 280px;  /* Evita que o card fique grande demais em telas largas */
-    border: 1px solid rgba(234,248,252,0.04);
-    background: linear-gradient(to top, var(--bg-color), rgba(255,255,255,0.01) 40%);
+    border: 1px solid #222;
+    background: linear-gradient(to top, #1a1a1a, var(--bg-color) 40%);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -407,7 +281,7 @@ input:focus {
 .poster-placeholder {
     width: 100%;
     height: 340px; /* Altura aproximada de um pôster */
-    background-color: rgba(13,48,70,0.14);
+    background-color: #2a2a2a;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -469,8 +343,8 @@ input:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(10,10,11,0.95) 20%, transparent 80%);
-    color: var(--text-primary);
+    background: linear-gradient(to top, rgba(0,0,0,0.98) 20%, transparent 80%);
+    color: #fff;
     padding: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -486,7 +360,7 @@ input:focus {
     font-size: 1.1rem;
     font-family: 'Cinzel', serif;
     padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgba(90,200,255,0.10);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.5);
 }
 
 .card-overlay .rating-stars {
@@ -501,7 +375,7 @@ input:focus {
 
 .card-overlay p {
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: #ccc;
     margin: 2px 0;
 }
 
@@ -523,57 +397,33 @@ input:focus {
 
 .footer {
     text-align: center;
-    padding: 2rem 1rem;
-    background: linear-gradient(180deg, rgba(13,37,63,0.95), rgba(11,18,32,1));
-    border-top: 2px solid rgba(255,255,255,0.04);
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.footer .tmdb-ack {
-    display: flex;
-    align-items: center; /* Alinha o texto e a imagem */
-    gap: 0.75rem;
-}
-
-.footer .tmdb-ack img {
-    width: 80px; /* Ajusta o tamanho do logo */
-    height: auto;
-    filter: brightness(1) saturate(0.9);
+    padding: 2rem;
+    background-color: #000;
+    border-top: 2px solid var(--primary-color);
+    font-size: 0.9rem;
 }
 
 .footer-links {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
     padding: 0;
-    margin: 0.5rem 0 0 0;
+    margin: 0;
 }
 
 .footer-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.18s ease;
+    transition: color 0.2s;
 }
 
 .footer-links a:hover {
-    color: var(--logo-accent); /* SUGESTÃO: Usar uma variável existente como --logo-accent ou --accent-color */
-}
-
-.footer p { margin: 0; color: var(--text-secondary); font-size: 0.9rem }
-
-/* Responsivo: em telas pequenas, tornamos o ack estático e centralizado */
-@media (max-width: 520px) {
-    .footer .tmdb-ack {
-        position: static;
-        justify-content: center;
-        margin-bottom: 0.6rem;
-    }
+    color: var(--accent-color);
 }
 
 .loader {
-    border: 6px solid rgba(13,37,63,0.18);
+    border: 6px solid #333;
     border-top: 6px solid var(--primary-color);
     border-radius: 50%;
     width: 50px;
@@ -583,8 +433,7 @@ input:focus {
 }
 
 .hidden {
-    /* Usamos opacidade e pointer-events para controlar os dropdowns animados */
-    display: none !important;
+    display: none;
 }
 
 @keyframes spin {
@@ -599,234 +448,73 @@ input:focus {
     width: 100%;
 }
 
-/* --- Media Queries para Responsividade --- */
-
-/* --- Media Queries para Responsividade (Correções para Mobile) --- */
+/* --- Media Queries para Responsividade (CORRIGIDAS) --- */
 
 @media (max-width: 768px) { 
-    
-    /* 1. CONTAINER PRINCIPAL DO CABEÇALHO */
+    /* 1. CONTAINER PRINCIPAL: Empilha os 3 blocos (Logo, Busca, Filtros) */
     .site-inner {
-        flex-direction: column; /* Empilha logo, busca e filtros verticalmente */
-        align-items: center;    /* Centraliza os itens empilhados */
-        gap: 1rem;              /* Reduz o espaçamento entre os blocos */
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 1rem; /* Ajusta o padding lateral em mobile */
     }
 
-    /* 2. HEADER: A coluna central e a direita precisam de largura total */
+    /* 2. OVERRIDE DE LARGURAS: Faz os blocos ocuparem a tela toda */
     .header-left,
     .header-center,
     .header-right {
-        width: 100%;            /* Força a largura total no modo coluna */
-        justify-content: center; /* Centraliza o conteúdo dentro dos blocos */
+        width: 100%;
         max-width: none;
-        min-width: unset;
-        /* Limpa o flexbox para que o elemento ocupe 100% */
-        flex: 0 0 100%; 
-    }
-    
-    /* 3. BARRA DE BUSCA: Garante que o input e botões ocupem o espaço */
-    .search-bar-container {
-        width: 100%;            /* Ocupa 100% da largura do .header-center */
-    }
-
-    /* 4. DROPDOWNS/FILTROS: Distribui os botões de filtro na linha */
-    .header-dropdowns {
-        /* Mantém os dropdowns Categoria e Ordenar lado a lado */
-        display: flex; 
-        justify-content: space-between; 
-        gap: 0.5rem; 
-        width: 100%; /* Ocupa 100% da largura do .header-right */
-    }
-    
-    /* Faz os botões de filtro dividirem a largura igualmente (50%/50%) */
-    .dropdown-btn {
-        flex-grow: 1; 
-        text-align: center;
-        padding: 0.6rem 0.5rem; /* Ajusta o padding para caber */
-    }
-    
-    /* 5. CARDS: Ajuste para visualização em duas colunas */
-    .card-container {
-        justify-content: center;
-        gap: 1rem; 
-    }
-
-    .card {
-        /* Permite duas colunas em telas menores. Subtrai o gap (1rem) */
-        width: calc(50% - 0.5rem); 
-        flex-basis: auto; /* Deixa o flexbox decidir a base de largura */
-        min-width: 150px;
-    }
-    
-    /* 6. RODAPÉ: Ajusta para mobile */
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-nav {
-        order: 2; /* Coloca a navegação depois do copyright/tmdb ack */
-    }
-    
-    /* Ajuste de uma coluna para celulares muito pequenos */
-    /* --- Media Queries para Responsividade (CORREÇÃO TOTAL) --- */
-
-@media (max-width: 768px) { 
-    header {
-        padding: 1rem; /* Reduz o padding do header */
-    }
-
-    /* 1. CONTAINER PRINCIPAL: Empilha os 3 blocos (Logo, Busca, Filtros) */
-    .site-inner {
-        flex-direction: column; 
-        align-items: center; 
-        gap: 1rem; 
-    }
-
-    /* 2. OVERRIDE DE LARGURAS: Faz os blocos ocuparem a tela toda */
-    .header-left,
-    .header-center,
-    .header-right {
-        width: 100%;            /* Força a largura total */
-        max-width: none;        /* Anula qualquer limite de max-width de desktop */
-        min-width: unset;       /* Anula qualquer limite de min-width de desktop */
-        flex-shrink: 1;         /* Permite que o elemento encolha se necessário */
+        flex-grow: 0; /* Garante que não haja crescimento inesperado */
         justify-content: center; /* Centraliza o conteúdo (como a logo) */
     }
-
-    /* 3. BARRA DE BUSCA: Garante que a barra ocupe 100% do .header-center */
-    .search-bar-container {
-        width: 100%;            
-    }
-
-    /* 4. DROPDOWNS/FILTROS: Distribui os botões de filtro lado a lado */
-    .header-dropdowns {
-        display: flex; 
-        justify-content: space-between; 
-        gap: 0.5rem; 
-        width: 100%; 
-    }
     
+    .logo {
+        height: 50px; /* Ajuste fino para mobile */
+    }
+
+    .search-bar-container {
+        width: 100%;
+    }
+
+    /* 3. DROPDOWNS/FILTROS: Distribui os botões de filtro lado a lado */
+    .header-dropdowns {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
     /* Faz os botões de filtro dividirem a largura igualmente (50%/50%) */
     .dropdown-btn {
-        flex-grow: 1; 
+        flex-grow: 1;
         text-align: center;
-        padding: 0.6rem 0.5rem; 
+        padding: 0.6rem 0.5rem;
         font-size: 0.9rem;
+        min-width: unset; /* Permite encolher em telas muito pequenas */
     }
-
-    /* 5. CARDS: Ajusta para layout de duas colunas mais compacto */
+    
     .card-container {
-        gap: 0.8rem; /* Reduz o gap para caber */
-        padding: 1rem 0.5rem;
+        gap: 1rem;
     }
-
+    
     .card {
-        /* Cria duas colunas, descontando o gap */
-        width: calc(50% - 0.4rem); 
-        flex-basis: auto; 
-        min-width: 150px;
-        max-width: 250px;
+        /* Permite que 2 cards fiquem lado a lado em telas menores */
+        flex-basis: calc(50% - 0.5rem);
+        flex-grow: 1;
+        width: auto;
+        max-width: 240px; 
     }
     
-    /* 6. RODAPÉ: Empilha itens verticalmente */
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .footer-nav .footer-links {
-        justify-content: center;
-        flex-wrap: wrap; /* Garante que os links quebrem a linha se necessário */
-        margin-top: 1rem;
-    }
-
-    /* --- Media Queries para Responsividade (CORREÇÃO TOTAL) --- */
-
-@media (max-width: 768px) { 
-    header {
-        padding: 1rem; /* Reduz o padding do header */
-    }
-
-    /* 1. CONTAINER PRINCIPAL: Empilha os 3 blocos (Logo, Busca, Filtros) */
-    .site-inner {
-        flex-direction: column; 
-        align-items: center; 
-        gap: 1rem; 
-    }
-
-    /* 2. OVERRIDE DE LARGURAS: Faz os blocos ocuparem a tela toda */
-    .header-left,
-    .header-center,
-    .header-right {
-        width: 100%;            /* Força a largura total */
-        max-width: none;        /* Anula qualquer limite de max-width de desktop */
-        min-width: unset;       /* Anula qualquer limite de min-width de desktop */
-        flex-shrink: 1;         /* Permite que o elemento encolha se necessário */
-        justify-content: center; /* Centraliza o conteúdo (como a logo) */
-    }
-
-    /* 3. BARRA DE BUSCA: Garante que a barra ocupe 100% do .header-center */
-    .search-bar-container {
-        width: 100%;            
-    }
-
-    /* 4. DROPDOWNS/FILTROS: Distribui os botões de filtro lado a lado */
-    .header-dropdowns {
-        display: flex; 
-        justify-content: space-between; 
-        gap: 0.5rem; 
-        width: 100%; 
-    }
-    
-    /* Faz os botões de filtro dividirem a largura igualmente (50%/50%) */
-    .dropdown-btn {
-        flex-grow: 1; 
-        text-align: center;
-        padding: 0.6rem 0.5rem; 
-        font-size: 0.9rem;
-    }
-
-    /* 5. CARDS: Ajusta para layout de duas colunas mais compacto */
-    .card-container {
-        gap: 0.8rem; /* Reduz o gap para caber */
-        padding: 1rem 0.5rem;
-    }
-
-    .card {
-        /* Cria duas colunas, descontando o gap */
-        width: calc(50% - 0.4rem); 
-        flex-basis: auto; 
-        min-width: 150px;
-        max-width: 250px;
-    }
-    
-    /* 6. RODAPÉ: Empilha itens verticalmente */
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .footer-nav .footer-links {
-        justify-content: center;
-        flex-wrap: wrap; /* Garante que os links quebrem a linha se necessário */
-        margin-top: 1rem;
-    }
-
-    /* Ajuste de uma coluna para celulares muito pequenos */
-    @media (max-width: 420px) {
-        .card {
-            width: 95%; /* Ocupa quase toda a largura */
-            max-width: none;
-            margin: 0 auto; 
-        }
-
-        .dropdown-options {
-            min-width: 150px; /* Reduz o menu de opções se a tela for muito pequena */
-        }
+    .footer {
+        padding: 1.5rem 1rem;
     }
 }
 
+@media (max-width: 480px) {
+    .card {
+        /* Garante que o card ocupe a largura total em celulares muito pequenos */
+        flex-basis: 100%;
+        max-width: none;
+    }
+}
