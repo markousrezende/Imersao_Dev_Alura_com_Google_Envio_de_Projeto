@@ -601,24 +601,81 @@ input:focus {
 
 /* --- Media Queries para Responsividade --- */
 
+/* --- Media Queries para Responsividade (Correções para Mobile) --- */
+
 @media (max-width: 768px) { 
-    header {
-        padding: 1.5rem 1rem; /* Reduz o padding em mobile */
-    }
-
+    
+    /* 1. CONTAINER PRINCIPAL DO CABEÇALHO */
     .site-inner {
-        flex-direction: column; /* Empilha os blocos do cabeçalho */
-        align-items: center;
+        flex-direction: column; /* Empilha logo, busca e filtros verticalmente */
+        align-items: center;    /* Centraliza os itens empilhados */
+        gap: 1rem;              /* Reduz o espaçamento entre os blocos */
     }
 
-    .header-dropdowns {
-        flex-direction: row; /* Mantém os botões de filtro lado a lado */
-        justify-content: center;
-        width: 100%;
+    /* 2. HEADER: A coluna central e a direita precisam de largura total */
+    .header-left,
+    .header-center,
+    .header-right {
+        width: 100%;            /* Força a largura total no modo coluna */
+        justify-content: center; /* Centraliza o conteúdo dentro dos blocos */
+        max-width: none;
+        min-width: unset;
+        /* Limpa o flexbox para que o elemento ocupe 100% */
+        flex: 0 0 100%; 
     }
-
+    
+    /* 3. BARRA DE BUSCA: Garante que o input e botões ocupem o espaço */
     .search-bar-container {
-        width: 100%; /* Ocupa toda a largura em mobile */
-        max-width: none; /* Ignora o limite de 500px em mobile */
+        width: 100%;            /* Ocupa 100% da largura do .header-center */
+    }
+
+    /* 4. DROPDOWNS/FILTROS: Distribui os botões de filtro na linha */
+    .header-dropdowns {
+        /* Mantém os dropdowns Categoria e Ordenar lado a lado */
+        display: flex; 
+        justify-content: space-between; 
+        gap: 0.5rem; 
+        width: 100%; /* Ocupa 100% da largura do .header-right */
+    }
+    
+    /* Faz os botões de filtro dividirem a largura igualmente (50%/50%) */
+    .dropdown-btn {
+        flex-grow: 1; 
+        text-align: center;
+        padding: 0.6rem 0.5rem; /* Ajusta o padding para caber */
+    }
+    
+    /* 5. CARDS: Ajuste para visualização em duas colunas */
+    .card-container {
+        justify-content: center;
+        gap: 1rem; 
+    }
+
+    .card {
+        /* Permite duas colunas em telas menores. Subtrai o gap (1rem) */
+        width: calc(50% - 0.5rem); 
+        flex-basis: auto; /* Deixa o flexbox decidir a base de largura */
+        min-width: 150px;
+    }
+    
+    /* 6. RODAPÉ: Ajusta para mobile */
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav {
+        order: 2; /* Coloca a navegação depois do copyright/tmdb ack */
+    }
+    
+    /* Ajuste de uma coluna para celulares muito pequenos */
+    @media (max-width: 480px) {
+        .card {
+            width: 95%; /* Ocupa quase toda a largura */
+            max-width: none;
+            flex-basis: 95%;
+            margin: 0 auto; 
+        }
     }
 }
