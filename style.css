@@ -352,8 +352,13 @@ input:focus {
 }
 
 .dropdown-options li.active::after {
-    content: 'âœ“'; /* Ãcone de check para a opÃ§Ã£o ativa */
+    /* U+2714 é o código Unicode do ícone de check '✔' */
+    content: '\2714'; 
     color: var(--logo-accent);
+    /* Adicionando um pequeno espaçamento para o ícone não grudar no texto */
+    margin-left: 8px;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 /* --- Container dos Cards --- */
