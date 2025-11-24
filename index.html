@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +11,15 @@
 <body>
 
     <header>
-        <div class="site-inner"> 
-
+        <div class="site-inner">
             <div class="header-left">
-                <a href="#" class="logo-container" id="logo-link"> 
+                <a href="/" class="logo-container">
                     <img src="Gemini_Generated_Image_kmgilrkmgilrkmgi.png" alt="Logo Cine Dev" class="logo">
                     <h1>Cine<span>Dev</span></h1>
                 </a>
             </div>
 
+            <!-- Barra de Busca Unificada (central) -->
             <div class="header-center">
                 <div class="search-bar-container">
                     <input type="text" id="campo-busca" placeholder="Busque por um filme...">
@@ -28,16 +28,19 @@
                 </div>
             </div>
 
+            <!-- Controles à direita (entrar/pedidos/perfil) e filtros -->
             <div class="header-right">
                 <div class="header-dropdowns">
                     <div class="category-dropdown">
                         <button id="category-dropdown-btn" class="dropdown-btn">Categoria: <span>Todos</span> <span class="arrow">▼</span></button>
-                        <ul id="category-options" class="dropdown-options hidden">
-                            </ul>
+                        <ul id="category-options" class="dropdown-options">
+                            <!-- Categorias serão inseridas aqui pelo JS -->
+                        </ul>
                     </div>
                     <div class="sort-dropdown">
                         <button id="sort-dropdown-btn" class="dropdown-btn">Ordenar por: <span>Padrão</span> <span class="arrow">▼</span></button>
-                        <ul id="sort-options" class="dropdown-options hidden">
+                        <ul id="sort-options" class="dropdown-options">
+                            <li data-sort="padrao" class="active">Padrão</li>
                             <li data-sort="avaliacao-desc">Mais Avaliados</li>
                             <li data-sort="avaliacao-asc">Menos Avaliados</li>
                             <li data-sort="ano-desc">Ano (Novos)</li>
@@ -47,29 +50,20 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-        </div> </header>
+    </header>
 
     <main class="main-content">
-        <div class="loader hidden"></div>
-        <div id="filmes-container" class="card-container">
-            </div>
+        <div class="loader hidden" role="status" aria-live="polite">Carregando filmes...</div>
+        <div id="filmes-container" class="card-container" aria-live="polite">
+            <!-- Os cards de filmes serão inseridos aqui pelo JavaScript -->
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="site-inner footer-inner">
-            
-            <div class="footer-meta">
-                <p class="tmdb-ack">
-                    Este site usa dados e imagens do TMDb, mas não é certificado ou afiliado ao TMDb.
-                    <img src="tmdb-logo.svg" alt="The Movie Database Logo" width="60"> 
-                </p>
-                <p class="copyright">
-                    © 2025 CineDev - Desenvolvido por <a href="https://github.com/markousrezende" target="_blank">Marcos Resende</a>
-                </p>
-            </div>
-
-            <nav class="footer-nav">
+    <footer class="footer" role="contentinfo">
+        <div class="footer-inner">
+            <nav class="footer-nav" aria-label="Links úteis">
                 <ul class="footer-links">
                     <li><a href="https://www.alura.com.br/" target="_blank">Alura</a></li>
                     <li><a href="https://gemini.google.com/app" target="_blank">Google Gemini</a></li>
@@ -78,9 +72,23 @@
                     <li><a href="https://www.instagram.com/markousrezende/" target="_blank">Instagram</a></li>
                 </ul>
             </nav>
+
+            <div class="footer-meta">
+                <p class="copyright">© 2025 CineDev. Por <a href="https://github.com/markousrezende" target="_blank">Marcos Resende</a>.</p>
+            </div>
+
+            <div class="footer-brand">
+                <div class="tmdb-ack">
+                    <small>API: The Movie Database (TMDb)</small>
+                    <img src="tmdb_logo.svg" alt="Logo do The Movie Database" />
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Dados centralizados em `data.json`. Para abrir localmente, execute um servidor simples: `python3 -m http.server` -->
+
     <script src="script.js"></script>
+
 </body>
 </html>
