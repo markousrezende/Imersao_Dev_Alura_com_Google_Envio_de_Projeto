@@ -115,7 +115,9 @@ const catalogo = {
             return;
         }
 
-        this.elements.loader.classList.remove('hidden');
+        // 1. Mostra o loader
+        this.mostrarLoader(); // Usando a nova função auxiliar
+
         const termoBusca = (this.elements.campoBusca.value || '').toLowerCase();
         // Determina categoria atual (com fallback para 'Todos')
         let categoriaAtual = 'Todos';
@@ -131,6 +133,10 @@ const catalogo = {
 
         this.elements.botaoLimpar.classList.remove('hidden'); // Mostra o botão de limpar
         this.atualizarVisualizacao();
+
+        // 2. ESCONDE O LOADER AO FINAL DA BUSCA SÍNCRONA
+        // Isso garante que ele só é visível durante o processamento da busca/renderização.
+        this.esconderLoader(); 
     },
 
     // FUNÇÃO LIMPARBUSCA RENOMEADA PARA resetCatalogo()
