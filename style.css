@@ -670,12 +670,163 @@ input:focus {
     }
     
     /* Ajuste de uma coluna para celulares muito pequenos */
-    @media (max-width: 480px) {
+    /* --- Media Queries para Responsividade (CORREÇÃO TOTAL) --- */
+
+@media (max-width: 768px) { 
+    header {
+        padding: 1rem; /* Reduz o padding do header */
+    }
+
+    /* 1. CONTAINER PRINCIPAL: Empilha os 3 blocos (Logo, Busca, Filtros) */
+    .site-inner {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 1rem; 
+    }
+
+    /* 2. OVERRIDE DE LARGURAS: Faz os blocos ocuparem a tela toda */
+    .header-left,
+    .header-center,
+    .header-right {
+        width: 100%;            /* Força a largura total */
+        max-width: none;        /* Anula qualquer limite de max-width de desktop */
+        min-width: unset;       /* Anula qualquer limite de min-width de desktop */
+        flex-shrink: 1;         /* Permite que o elemento encolha se necessário */
+        justify-content: center; /* Centraliza o conteúdo (como a logo) */
+    }
+
+    /* 3. BARRA DE BUSCA: Garante que a barra ocupe 100% do .header-center */
+    .search-bar-container {
+        width: 100%;            
+    }
+
+    /* 4. DROPDOWNS/FILTROS: Distribui os botões de filtro lado a lado */
+    .header-dropdowns {
+        display: flex; 
+        justify-content: space-between; 
+        gap: 0.5rem; 
+        width: 100%; 
+    }
+    
+    /* Faz os botões de filtro dividirem a largura igualmente (50%/50%) */
+    .dropdown-btn {
+        flex-grow: 1; 
+        text-align: center;
+        padding: 0.6rem 0.5rem; 
+        font-size: 0.9rem;
+    }
+
+    /* 5. CARDS: Ajusta para layout de duas colunas mais compacto */
+    .card-container {
+        gap: 0.8rem; /* Reduz o gap para caber */
+        padding: 1rem 0.5rem;
+    }
+
+    .card {
+        /* Cria duas colunas, descontando o gap */
+        width: calc(50% - 0.4rem); 
+        flex-basis: auto; 
+        min-width: 150px;
+        max-width: 250px;
+    }
+    
+    /* 6. RODAPÉ: Empilha itens verticalmente */
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-nav .footer-links {
+        justify-content: center;
+        flex-wrap: wrap; /* Garante que os links quebrem a linha se necessário */
+        margin-top: 1rem;
+    }
+
+    /* --- Media Queries para Responsividade (CORREÇÃO TOTAL) --- */
+
+@media (max-width: 768px) { 
+    header {
+        padding: 1rem; /* Reduz o padding do header */
+    }
+
+    /* 1. CONTAINER PRINCIPAL: Empilha os 3 blocos (Logo, Busca, Filtros) */
+    .site-inner {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 1rem; 
+    }
+
+    /* 2. OVERRIDE DE LARGURAS: Faz os blocos ocuparem a tela toda */
+    .header-left,
+    .header-center,
+    .header-right {
+        width: 100%;            /* Força a largura total */
+        max-width: none;        /* Anula qualquer limite de max-width de desktop */
+        min-width: unset;       /* Anula qualquer limite de min-width de desktop */
+        flex-shrink: 1;         /* Permite que o elemento encolha se necessário */
+        justify-content: center; /* Centraliza o conteúdo (como a logo) */
+    }
+
+    /* 3. BARRA DE BUSCA: Garante que a barra ocupe 100% do .header-center */
+    .search-bar-container {
+        width: 100%;            
+    }
+
+    /* 4. DROPDOWNS/FILTROS: Distribui os botões de filtro lado a lado */
+    .header-dropdowns {
+        display: flex; 
+        justify-content: space-between; 
+        gap: 0.5rem; 
+        width: 100%; 
+    }
+    
+    /* Faz os botões de filtro dividirem a largura igualmente (50%/50%) */
+    .dropdown-btn {
+        flex-grow: 1; 
+        text-align: center;
+        padding: 0.6rem 0.5rem; 
+        font-size: 0.9rem;
+    }
+
+    /* 5. CARDS: Ajusta para layout de duas colunas mais compacto */
+    .card-container {
+        gap: 0.8rem; /* Reduz o gap para caber */
+        padding: 1rem 0.5rem;
+    }
+
+    .card {
+        /* Cria duas colunas, descontando o gap */
+        width: calc(50% - 0.4rem); 
+        flex-basis: auto; 
+        min-width: 150px;
+        max-width: 250px;
+    }
+    
+    /* 6. RODAPÉ: Empilha itens verticalmente */
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-nav .footer-links {
+        justify-content: center;
+        flex-wrap: wrap; /* Garante que os links quebrem a linha se necessário */
+        margin-top: 1rem;
+    }
+
+    /* Ajuste de uma coluna para celulares muito pequenos */
+    @media (max-width: 420px) {
         .card {
             width: 95%; /* Ocupa quase toda a largura */
             max-width: none;
-            flex-basis: 95%;
             margin: 0 auto; 
+        }
+
+        .dropdown-options {
+            min-width: 150px; /* Reduz o menu de opções se a tela for muito pequena */
         }
     }
 }
+
